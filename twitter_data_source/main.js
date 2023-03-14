@@ -1,5 +1,5 @@
 import { Client } from "twitter-api-sdk";
-
+import {sendStream} from "receive_module";
 // Twitter data source
  const client = new Client("AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8");
 
@@ -19,5 +19,8 @@ console.log(rules);
  for await (const tweet of stream) {
   //get any twitter need send to receive module
    //console.log(tweet.data.text);
+   sendStream(tweet.data.text)
+      console.log(tweet.data.text);
+
  }
 
