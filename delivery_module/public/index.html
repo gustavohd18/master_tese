@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JavaScript Tag Cloud Chart</title>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts-wordcloud.js'></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+  <script src="bower_components/materialize/bin/materialize.js"></script>
+  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="/javascripts/nv.d3.js"></script>
+  <script src="/javascripts/main.js"></script>
+  <style>
+    html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+  </style> 
+ </head>
+  <body>
+   <div id="container"></div>
+    <script>
+
+
+ anychart.onDocumentReady(function() {
+  var socket = io.connect('http://192.168.0.46:3000');
+  const data2 = [];
+  var chart = anychart.tagCloud(data2);
+
+console.log("Escutando...")
+      socket.on('teste2',function(data){
+        console.log("Venho da tela")
+       // console.log(data1)
+
+        data2.push(data)
+
+       console.log(data2)
+       data2.sort()
+
+ // create a tag (word) cloud chart
+   chart = anychart.tagCloud(data2);
+
+   // set a chart title
+  chart.title('WordCloud1')
+  // set an array of angles at which the words will be laid out
+  chart.angles([0])
+  // enable a color range
+  chart.colorRange(true);
+  // set the color range length
+  chart.colorRange().length('80%');
+
+  // display the word cloud chart
+  chart.container("container");
+  chart.draw();
+
+});
+});
+    </script>
+  </body>
+</html>
