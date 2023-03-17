@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "bower": "^1.7.9",
+    "canvas": "^2.11.0",
     "cassandra-driver": "^3.1.5",
+    "d3-cloud": "^1.2.5",
     "express": "^4.14.0",
     "kafka-node": "^0.5.8",
     "kafkajs": "^2.2.4",

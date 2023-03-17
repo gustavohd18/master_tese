@@ -1,5 +1,12 @@
 import { Client } from "twitter-api-sdk";
 import {sendStream} from "receive_module";
+
+// sendStream("teste")
+
+// sendStream("teste1")
+
+// sendStream("teste2")
+
 // Twitter data source
  const client = new Client("AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8");
 
