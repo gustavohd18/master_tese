@@ -32,32 +32,21 @@
   <body>
     <canvas id="wordCloudTeste" class="border-area" width="1080" height="800"></canvas>
     <script>
-                        let listaPlot = [];
+      let listaPlot = [];
 
       socket.on('teste2',function(data){
         console.log("Venho da tela")
-       // console.log(data1)
+    //    listaPlot = []
+     //   listaPlot = data
         let value  = data["value"] 
        listaPlot.push([data["x"],value])
-//        let options = {
-//             list: listaPlot,
-//             gridSize: 18,
-//             weightFactor: 3,
-//             fontFamily: 'Montserrat, cursive, sans-serif',
-// color: function (word, weight) {
-//                 return (Math.floor(Math.random()*weight) % 2 == 0) ? '#7200dc' : '#0bb6e0';
-//             },
-//             hover: window.drawBox,
-//             backgroundColor: '#ffffff'
-//         };
-//         WordCloud(document.getElementById('wordCloudTeste'), options);
-        
-      //  data2.sort()
+       console.log(listaPlot)
+
 
 });
  var interval = setInterval(function () {
 
-                  let options = {
+            let options = {
             list: listaPlot,
             gridSize: 18,
             weightFactor: 3,
@@ -71,24 +60,8 @@ color: function (word, weight) {
         WordCloud(document.getElementById('wordCloudTeste'), options);
         
 
-}, 8000);
+}, 7000);
 
-//  anychart.onDocumentReady(function() {
-//   var socket = io.connect('http://192.168.0.46:3000');
-//   const data2 = [];   // set a chart title
-
-// console.log("Escutando...")
-//       socket.on('teste2',function(data){
-//         console.log("Venho da tela")
-//        // console.log(data1)
-
-//          data2.push(data)
-
-//         console.log(data )
-//       //  data2.sort()
-
-// });
-// });
     </script>
   </body>
 </html>
