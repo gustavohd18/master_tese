@@ -74,54 +74,8 @@ public class Main {
 
         // create a stream to ingest data from Kafka as a custom class with explicit key/value
         DataStream<String> stream = env.addSource(kafkaConsumer);
+        DataStream<String> outputNamedEntity = stream.map(new NamedEntityRecognitionFunction());
 
-//        // parse the data, group it, window it, and aggregate the counts
-//        DataStream<WordWithCount> windowCounts =
-//                stream.flatMap(
-//                                (FlatMapFunction<String, WordWithCount>)
-//                                        (value, out) -> {
-//                                            String str2 = "\\?";
-//
-//                                            String characterFilter = "[^\\p{L}\\p{M}\\p{N}\\p{P}\\p{Z}\\p{Cf}\\p{Cs}\\s]";
-//                                            String newWord1 = value.replaceAll(characterFilter, "");
-//                                            String newWord2 = newWord1.replaceAll(str2, "").toLowerCase();
-//                                            for (String word : newWord2.split("\\s")) {
-//                                                for(String stopWord: stopWords ) {
-//                                                    if(word.equals(stopWord)) {
-//                                                        word = word.replaceAll(stopWord, "");
-//                                                    }
-//                                                }
-//                                                out.collect(new WordWithCount(word, 1L));
-//                                            }
-//                                        },
-//                                Types.POJO(WordWithCount.class))
-//                        .keyBy(value -> value.word)
-//                        .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))
-//                        .reduce((a, b) -> new WordWithCount(a.word, a.count + b.count))
-//                        .returns(WordWithCount.class);
-//        windowCounts.addSink(kafkaProducer);
-        // supports timewindow without group by key
-//        stream
-//                .timeWindowAll(Time.seconds(5)) // ignoring grouping per key
-//                .reduce(new ReduceFunction<String>()
-//                {
-//                    @Override
-//                    public String reduce(String value1, String value2) throws Exception
-//                    {
-//                        System.out.println(LocalTime.now() + " -> " + value1 + "   " + value2);
-//                        return value1+value2;
-//                    }
-//                })
-//                .addSink(kafkaProducer);
-                //.print(); // immediate printing to console
-        //.keyBy( (KeySelector<KafkaRecord, String>) KafkaRecord::getKey )
-        //.timeWindow(Time.seconds(5))
-
-        // produce a number as string every second
-        //new NumberGenerator(p, TOPIC_IN).start();
-
-        // for visual topology of the pipeline. Paste the below output in https://flink.apache.org/visualizer/
-      //  System.out.println( env.getExecutionPlan() );
         // Split the text stream into words and count each word
         DataStream<Tuple2<String, Integer>> wordCounts = stream
                 .flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
