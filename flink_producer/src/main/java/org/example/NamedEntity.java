@@ -1,3 +1,6 @@
+package org.example;
+
+import opennlp.tools.tokenize.SimpleTokenizer;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.configuration.Configuration;
@@ -5,7 +8,7 @@ import opennlp.tools.namefind.NameFinderME;
 import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.util.Span;
 
-public class NamedEntityRecognitionFunction extends RichMapFunction<String, String> {
+public class NamedEntity extends RichMapFunction<String, String> {
 
     private transient NameFinderME nameFinder;
 
@@ -14,8 +17,8 @@ public class NamedEntityRecognitionFunction extends RichMapFunction<String, Stri
         super.open(parameters);
 
         // Load the TokenNameFinderModel from the resources folder
-        TokenNameFinderModel model = new TokenNameFinderModel(getClass().getResourceAsStream("/en-ner-person.bin"));
-        
+        TokenNameFinderModel model = new TokenNameFinderModel(getClass().getResourceAsStream("/opennlp/en-ner-person.bin"));
+
         // Initialize the NameFinderME with the loaded model
         nameFinder = new NameFinderME(model);
     }
@@ -23,23 +26,26 @@ public class NamedEntityRecognitionFunction extends RichMapFunction<String, Stri
     @Override
     public void close() throws Exception {
         super.close();
-        
+
         // Clean up resources
         nameFinder.clearAdaptiveData();
     }
 
     @Override
     public String map(String value) throws Exception {
+
         // Split the input text into tokens
-        String[] tokens = value.split(" ");
+        String[] tokens = SimpleTokenizer.INSTANCE.tokenize(value);
 
         // Use the NameFinderME to extract named entities from the tokens
         Span[] spans = nameFinder.find(tokens);
 
-        // Convert the extracted spans back into text and return as a comma-separated string
+        String[] names = Span.spansToStrings(spans, tokens);
+
+
         StringBuilder sb = new StringBuilder();
-        for (Span span : spans) {
-            sb.append(value.substring(span.getStart(), span.getEnd())).append(",");
+        for (int i = 0; i < names.length; i++) {
+            sb.append(names[i]);
         }
         return sb.toString();
     }

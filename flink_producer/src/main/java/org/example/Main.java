@@ -21,30 +21,30 @@ import org.apache.kafka.common.serialization.StringSerializer;
 
 public class Main {
     static String TOPIC_IN = "teste1";
-    static String BOOTSTRAP_SERVER = "192.168.0.46:9092";
+    static String BOOTSTRAP_SERVER = "192.168.0.90:9092";
 
     @SuppressWarnings("serial")
     public static void main( String[] args ) throws Exception
     {
 
 
-       List<String> stopWords = Arrays.asList( "a", "@","@", "#", "//", "http//:","adeus", "agora", "aí", "ainda", "além", "algo", "alguém", "algum", "alguma", "algumas", "alguns", "ali", "ampla", "amplas", "amplo", "amplos", "ano", "anos", "ante", "antes", "ao", "aos", "apenas", "apoio", "após", "aquela", "aquelas", "aquele", "aqueles", "aqui", "aquilo", "área", "as", "às", "assim", "até", "atrás", "através", "baixo", "bastante", "bem", "boa", "boas", "bom", "bons", "breve", "cá", "cada", "catorze", "cedo", "cento", "certamente", "certeza", "cima", "cinco", "coisa", "coisas", "com", "como", "conselho", "contra",
+        List<String> stopWords = Arrays.asList( "a", "@","@", "#", "//", "http//:","adeus", "agora", "aí", "ainda", "além", "algo", "alguém", "algum", "alguma", "algumas", "alguns", "ali", "ampla", "amplas", "amplo", "amplos", "ano", "anos", "ante", "antes", "ao", "aos", "apenas", "apoio", "após", "aquela", "aquelas", "aquele", "aqueles", "aqui", "aquilo", "área", "as", "às", "assim", "até", "atrás", "através", "baixo", "bastante", "bem", "boa", "boas", "bom", "bons", "breve", "cá", "cada", "catorze", "cedo", "cento", "certamente", "certeza", "cima", "cinco", "coisa", "coisas", "com", "como", "conselho", "contra",
                 "contudo", "custa", "da", "dá", "dão", "daquela", "daquelas", "daquele", "daqueles", "dar", "das", "de", "debaixo", "dela", "delas", "dele", "deles", "demais", "dentro", "depois", "desde", "dessa", "dessas", "desse", "desses", "desta", "destas", "deste", "destes", "deve", "devem", "devendo", "dever", "deverá", "deverão", "deveria", "deveriam",
                 "devia", "deviam", "dez", "dezanove", "dezasseis", "dezassete", "dezoito", "dia", "diante", "disse",
                 "disso", "disto", "dito", "diz", "dizem", "dizer", "do", "dois", "dos", "doze", "duas", "dúvida",
                 "e", "é", "ela", "elas", "ele", "eles", "em", "embora", "enquanto", "entre", "era", "eram", "éramos",
                 "és", "essa", "essas", "esse", "esses", "esta", "está", "estamos", "estão", "estar", "estas", "estás",
                 "estava", "estavam", "estávamos", "este", "esteja", "estejam", "estejamos", "estes", "esteve", "estive",
-               "estou", "etc", "eu", "exemplo", "faço", "falta", "favor", "faz", "fazeis", "fazem", "fazemos",
+                "estou", "etc", "eu", "exemplo", "faço", "falta", "favor", "faz", "fazeis", "fazem", "fazemos",
                 "fazendo", "fazer", "fazes", "feita", "feitas", "feito", "feitos", "fez", "fim", "final", "foi",
                 "fomos", "foste", "fostes", "fui", "geral", "grande", "grandes", "grupo", "há", "haja", "hajam",
                 "hajamos", "houvessem", "houvéssemos", "isso", "isto", "já", "la", "lá", "lado", "lhe", "lhes", "lo",
                 "local", "logo", "longe", "lugar", "maior", "maioria", "mais", "mal", "mas", "máximo", "me", "meio",
                 "naquele", "naqueles", "nas", "nem", "nenhum", "nenhuma", "nessa", "nessas", "nesse", "nesses", "nesta",
-            "paucas", "pela", "pelas", "pelo", "pelos", "pequena", "pequenas", "pequeno", "pequenos", "per",
+                "paucas", "pela", "pelas", "pelo", "pelos", "pequena", "pequenas", "pequeno", "pequenos", "per",
                 "perante", "perto", "pode", "pude",  "poderia", "poderiam", "podia", "podiam", "põe", "põem"
                 , "quando", "quanto", "quantos", "quarta", "quarto", "quatro", "que", "quê", "quem", "quer","rt",
-               "relação", "sabe",  "seria", "seriam", "seríamos", "sete", "sétima", "sétimo", "seu", "seus", "sexta", "sexto", "si", "sido", "sim", "sistema", "só", "sob", "terão", "terceira", "terceiro", "terei", "teremos", "teria", "teriam", "teríamos", "teu", "teus", "teve", "ti", "tido", "tinha", "tinham", "tínhamos", "tive", "tivemos", "tiver", "tivera", "tiveram", "tivéramos", "tiverem", "tivermos", "todas", "todavia", "todo", "últimos", "um", "uma", "umas", "uns", "vai", "vais", "vão", "vários", "vem", "vêm", "vendo", "vens", "ver", "vez", "vezes", "viagem", "vindo", "vinte", "vir", "você", "vocês", "vos", "vós", "vossa", "vossas", "vosso", "vossos", "zero", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_");
+                "relação", "sabe",  "seria", "seriam", "seríamos", "sete", "sétima", "sétimo", "seu", "seus", "sexta", "sexto", "si", "sido", "sim", "sistema", "só", "sob", "terão", "terceira", "terceiro", "terei", "teremos", "teria", "teriam", "teríamos", "teu", "teus", "teve", "ti", "tido", "tinha", "tinham", "tínhamos", "tive", "tivemos", "tiver", "tivera", "tiveram", "tivéramos", "tiverem", "tivermos", "todas", "todavia", "todo", "últimos", "um", "uma", "umas", "uns", "vai", "vais", "vão", "vários", "vem", "vêm", "vendo", "vens", "ver", "vez", "vezes", "viagem", "vindo", "vinte", "vir", "você", "vocês", "vos", "vós", "vossa", "vossas", "vosso", "vossos", "zero", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "_");
 
 
 
@@ -74,7 +74,7 @@ public class Main {
 
         // create a stream to ingest data from Kafka as a custom class with explicit key/value
         DataStream<String> stream = env.addSource(kafkaConsumer);
-        DataStream<String> outputNamedEntity = stream.map(new NamedEntityRecognitionFunction());
+        DataStream<String> outputNamedEntity = stream.map(new NamedEntity());
 
         // Split the text stream into words and count each word
         DataStream<Tuple2<String, Integer>> wordCounts = stream
@@ -94,18 +94,36 @@ public class Main {
                 .timeWindow(Time.seconds(5))
                 .sum(1);
 
+        // Split the text stream into named entity and count each word
+        DataStream<Tuple2<String, Integer>> namedEntitywordCounts = outputNamedEntity
+                .flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
+                    public void flatMap(String value, Collector<Tuple2<String, Integer>> out) {
+                        out.collect(new Tuple2<String, Integer>(value, 1));
+                    }
+                })
+                .keyBy(0)
+                .timeWindow(Time.seconds(5))
+                .sum(1);
+
         // Add the word count to each new window in the same list
         DataStream<Tuple2<String, Integer>> updatedWordCounts = wordCounts
                 .keyBy(0)
                 .reduce((value1, value2) -> new Tuple2<>(value1.f0, value1.f1 + value2.f1));
 
+        // Add the word count to each new window in the same list
+        DataStream<Tuple2<String, Integer>> updatedNamedEntityWordCounts = namedEntitywordCounts
+                .keyBy(0)
+                .reduce((value1, value2) -> new Tuple2<>(value1.f0, value1.f1 + value2.f1));
+
         // Persist each count of word for each window
-        updatedWordCounts.print();
+        //updatedWordCounts.print();
+
+        updatedNamedEntityWordCounts.print();
 
         updatedWordCounts.addSink(kafkaProducer);
         // start flink
         env.execute();
-   }
+    }
 
     public static class WordWithCount {
 
