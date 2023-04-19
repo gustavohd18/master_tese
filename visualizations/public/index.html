@@ -36,15 +36,20 @@
       const ws = new WebSocket("ws://localhost:8080");
       ws.addEventListener("open", () =>{
         console.log("We are connected");
-        ws.send("How are you?");
       });
       
       ws.addEventListener('message', function (event) {
         var object = JSON.parse(event.data);
         console.log(object)
-        listaPlot = []
-        listaPlot = object
-        console.log(listaPlot)
+        if(object["namedEntity"] == false) {
+          listaPlot = []
+          listaPlot = object["data"]
+          console.log(listaPlot)
+        } else {
+          console.log("Testes ouvir da tela")
+          console.log(object)
+
+        }
       });
 
  var interval = setInterval(function () {

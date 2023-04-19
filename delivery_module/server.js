@@ -76,16 +76,30 @@ await consumer2.run({
       isStale,
       pause,
   }) => {
+    const array1 = []
+    const array2 = []
 
-    const outputList = batch.messages.map(message => {
+    for (var i = 0; i < batch.messages.length; i++) {
       // Remove the parentheses and split the string by the comma
-      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+      const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
       
       // Create a new object with the extracted values
-      return  [x, parseInt(value)];
-    });
+      //array com o primeiro elemento sendo o array de names e o segundo inteiros
+      array1.push(x)
+      array2.push(value)      // more statements
+   }
+    // const outputList = batch.messages.map(message => {
+    //   // Remove the parentheses and split the string by the comma
+    //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+      
+    //   // Create a new object with the extracted values
+    //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
+    //   array1.push(x)
+    //   array2.push(value)
+    //   return  [[x], [parseInt(value)]];
+    // });
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":true, data:outputList}));
+    ws.send(JSON.stringify({"namedEntity":true, data:[array1, array2]}));
   },
 });
   //handlerKafkaNamed(ws)
