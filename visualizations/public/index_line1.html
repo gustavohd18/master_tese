@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JavaScript Tag Cloud Chart</title>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts-wordcloud.js'></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js" ></script>
+  <script src="bower_components/materialize/bin/materialize.js"></script>
+  <script src='https://d3js.org/d3.v5.min.js'></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.1/math.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.1/wordcloud2.min.js"></script>
+  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="/javascripts/nv.d3.js"></script>
+  <script src="/javascripts/main.js"></script>
+
+  <style>
+    html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+  </style> 
+ </head>
+
+<body>
+  <div id="container"></div>
+  <script>
+
+    var chartDom = document.getElementById('container');
+    var myChart = echarts.init(chartDom);
+
+    var startTime = new Date();
+    var endTime = new Date(startTime.getTime() + (1 * 30 * 1000));
+
+    var options = {
+      xAxis: {
+        type: 'time',
+        min: startTime,
+        max: endTime
+      },
+      yAxis: {},
+      series: [
+        {
+          name: 'Brasil',
+          type: 'line',
+          data: []
+        },
+        {
+          name: 'Canada',
+          type: 'line',
+          data: []
+        }
+      ]
+    };
+
+    // set interval to update chart data every second
+    setInterval(function() {
+      var dateTime = new Date();
+      var value1 = Math.random() * 100;
+      var value2 = Math.random() * 100;
+
+      if (dateTime <= endTime) {
+        options.series[0].data.push([dateTime, value1]);
+        options.series[1].data.push([dateTime, value2]);
+      } else {
+        startTime = new Date(endTime.getTime());
+        endTime = new Date(startTime.getTime() + (2 * 60 * 1000));
+
+        options.xAxis.min = startTime;
+        options.xAxis.max = endTime;
+        options.series[0].data = [];
+        options.series[1].data = [];
+      }
+
+      myChart.setOption(options);
+    }, 2000);
+  </script>
+</body>
+</html>
