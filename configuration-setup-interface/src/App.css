@@ -1,0 +1,60 @@
+.app-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.content-container {
+  margin-left: 25px; /* Add some margin to the right of the DataSourceSelector */
+
+}
+
+.container {
+  display: flex;
+
+
+}
+
+.container-main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction:  column ;
+  padding-left: 20px; /* Set the padding to 20px */
+  padding-top:20px;
+}
+
+.button-starts {
+  display: flex;
+  flex-direction:  row ;
+  padding-left: 10%; /* Set the padding to 20px */
+  padding-top:20px;
+  
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  background-color: #eee;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.left,
+.right {
+  width: 20%; /* Set the width to 50% to make them split the container */
+  margin-right: 10px; /* Add a margin to the right of the left div */
+}
+
+.right {
+  margin-right: 0; /* Remove the margin from the right div */
+}
