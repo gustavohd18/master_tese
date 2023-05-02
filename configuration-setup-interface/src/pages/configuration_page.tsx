@@ -3,7 +3,8 @@ import "../App.css";
 import DataSourceSelector from "../components/DataSourceSelector";
 import VisualizationToggler from "../components/VisualizationToggler";
 import ProcessingFlinkToggler from "../components/ProcessingFlinkToggler";
-import Button from "../components/Button";
+import {Button} from "react-bootstrap";
+import ButtonCustom from "../components/Button";
 
 function ConfigurationPage() {
   const handleVisualizationToggle = (options: string[]) => {
@@ -24,14 +25,15 @@ function ConfigurationPage() {
     setTag(tag);
   };
   return (
-    <div className="container-main">
+    <div>
       <div>
         <DataSourceSelector onSelect={handleDataSourceSelect} />
         <br />
-        <div>Selected data source: {dataSource}</div>
-        <br />
-        <div>Entered token: {token}</div>
-        <div>Entered tag: {tag}</div>
+        <div className="divider">
+          <div>Selected data source: {dataSource}</div>
+          <div>Entered token: {token}</div>
+          <div>Entered tag: {tag}</div>
+        </div>
       </div>
       <div className="container">
         <div className="left">
@@ -44,8 +46,8 @@ function ConfigurationPage() {
         </div>
       </div>
       <div className="button-starts">
-        <Button onClick={() => {}} title={"Start"}></Button>
-        <Button onClick={() => {}} title={"Update"}></Button>
+        <ButtonCustom onClick={() => {}} title={"Start"}></ButtonCustom>
+        <ButtonCustom onClick={() => {}} title={"Update"}></ButtonCustom>
       </div>
     </div>
   );

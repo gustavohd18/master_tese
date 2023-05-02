@@ -47,7 +47,7 @@ function ProcessingFlinkToggler(props: ProcessingFlinkTogglerProps) {
       <input
         type="checkbox"
         value="Count tweets pertime"
-        checked={selectedOptions.includes("Count tweets pertime")}
+        checked={selectedOptions.includes("Count tweets per time")}
         onChange={handleOptionToggle}
       />{" "}
       Count tweets pertime

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Button} from "react-bootstrap";
 
 interface DataSourceSelectorProps {
   onSelect: (dataSource: string, token: string, tag: string) => void;
@@ -29,7 +30,7 @@ function DataSourceSelector(props: DataSourceSelectorProps) {
   };
 
   return (
-    <div>
+    <div className="data-source">
       <label>Select data source:</label>
       <br />
       <select value={dataSource} onChange={handleDataSourceChange}>
@@ -38,15 +39,18 @@ function DataSourceSelector(props: DataSourceSelectorProps) {
       </select>
       <br />
       <form onSubmit={handleSubmit}>
-        <label>Baren token:</label>
+        <label style={{marginTop: "8px"}}>Baren token:</label>
         <br />
+
         <input type="text" value={token} onChange={handleTokenChange} />
         <br />
-        <label>Tags:</label>
+        <label style={{marginTop: "8px"}}>Tags:</label>
         <br />
         <input type="text" value={tag} onChange={handleTagChange} />
         <br />
-        <button type="submit">save</button>
+        <Button style={{marginTop: "8px"}} variant="primary" type="submit">
+          save
+        </Button>
       </form>
     </div>
   );

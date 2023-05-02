@@ -7,11 +7,13 @@
 .content-container {
   margin-left: 25px; /* Add some margin to the right of the DataSourceSelector */
 
+
+
 }
 
 .container {
   display: flex;
-
+  justify-content: center;
 
 }
 
@@ -21,14 +23,28 @@
   flex-direction:  column ;
   padding-left: 20px; /* Set the padding to 20px */
   padding-top:20px;
+
 }
 
 .button-starts {
   display: flex;
   flex-direction:  row ;
-  padding-left: 10%; /* Set the padding to 20px */
+  justify-content: center;
+  gap: 20px;
   padding-top:20px;
   
+}
+
+.data-source {
+  flex-direction:  column ;
+  justify-content: space-around;
+  margin-left: 10px;
+
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
 
 .tab {
@@ -52,9 +68,13 @@
 .left,
 .right {
   width: 20%; /* Set the width to 50% to make them split the container */
-  margin-right: 10px; /* Add a margin to the right of the left div */
+  margin-right: 0; /* Add a margin to the right of the left div */
 }
 
 .right {
   margin-right: 0; /* Remove the margin from the right div */
+}
+
+.divider {
+  margin-left: 10px;
 }
