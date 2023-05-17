@@ -2,7 +2,7 @@ import { Kafka } from "kafkajs";
 export async function sendToKafka(text) {
   const kafka = new Kafka({
     clientId: 'my-app',
-    brokers: ['192.168.0.46:9092'],
+    brokers: ['192.168.0.90:9092'],
   })
   
    const producer = kafka.producer()

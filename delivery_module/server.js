@@ -51,10 +51,10 @@ await consumer1.run({
     const outputList = batch.messages.map(message => {
       // Remove the parentheses and split the string by the comma
       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
-      
+
       // Create a new object with the extracted values
-      return  [x, parseInt(value)];
-    });
+      return  {"text":x,"value": parseInt(value)};
+    }); // validar se esta certo
     //format object to json 
     ws.send(JSON.stringify({"namedEntity":false, data:outputList}));
   },
@@ -109,6 +109,11 @@ await consumer2.run({
   //on message from client
   ws.on("message", data => {
       console.log(`Client has sent us: ${data}`)
+      const newData = JSON.parse(data)
+      if(newData["command"] == "setup" ||newData["command"] == "update") {
+        console.log("vou enviar o dado")
+        sendToKafkaUserSetupInformation(data)
+      }
   });
 
   // handling what to do when clients disconnects from server
@@ -179,3 +184,60 @@ async function handlerKafka (ws) {
     },
 })
  }
+
+ //producer data para o que for setado do setup
+  async function sendToKafkaUserSetupInformation(filterInfoWordCloud) {
+    console.log(filterInfoWordCloud)
+    const prodConfig = {
+      groupId: 'my-app',
+      brokers: ['192.168.0.90:9092'],
+      autoCommit: true,
+      autoCommitInterval: 5000,
+    }
+
+    const message = {
+      value: JSON.stringify(filterInfoWordCloud), // Provide a valid message payload
+    };
+
+  const kafkaprod = new kafka1.Kafka(prodConfig).producer()
+    
+  await kafkaprod.connect()
+  await kafkaprod.send({
+    topic: 'setup_from_user', 
+    messages: [
+      message
+
+    ],
+   })
+
+   await kafkaprod.disconnect();
+
+}
+//producer data para o que for setado do setup
+ async function sendToKafkaUserVisualizationInformation({filterInfoWordCloud}) {
+
+   console.log(filterInfoWordCloud)
+   const prodConfig = {
+     groupId: 'my-app',
+     brokers: ['192.168.0.90:9092'],
+     autoCommit: true,
+     autoCommitInterval: 5000,
+   }
+
+   const message = {
+     value: JSON.stringify(filterInfoWordCloud), // Provide a valid message payload
+   };
+
+ const kafkaprod = new kafka1.Kafka(prodConfig).producer()
+   
+ await kafkaprod.connect()
+ await kafkaprod.send({
+   topic: 'data_from_user_visualization', 
+   messages: [
+     message
+
+   ],
+  })
+
+  await kafkaprod.disconnect();
+}

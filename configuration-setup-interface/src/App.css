@@ -35,6 +35,11 @@
   
 }
 
+#wordcloud-container {
+  height: 400px;
+  width: 600px;
+}
+
 .data-source {
   flex-direction:  column ;
   justify-content: space-around;

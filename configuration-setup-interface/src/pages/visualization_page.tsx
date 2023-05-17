@@ -1,33 +1,39 @@
-import React, {useState} from "react";
 import "../App.css";
+import React, {useState, useEffect} from "react";
 
 import ReactECharts from "echarts-for-react";
+import WordCloudCustom, {WordsCloud} from "../components/WordCloudCustom";
+import {DataBarContent} from "../App";
 
-const WordCloud: React.FC = () => {
+interface MyComponentProps {
+  dataBar: DataBarContent;
+  word: WordsCloud[];
+}
+
+const WordCloudCustom2 = () => {
+  // Set up data for the wordcloud
   const data = [
-    {name: "apple", value: 100},
-    {name: "banana", value: 80},
-    {name: "orange", value: 120},
-    {name: "pear", value: 70},
-    {name: "grape", value: 90},
+    {name: "Javascript", value: 100},
+    {name: "ReactJS", value: 80},
+    {name: "NodeJS", value: 70},
+    {name: "CSS", value: 60},
+    {name: "HTML", value: 50},
+    {name: "Redux", value: 40},
+    {name: "Webpack", value: 30},
+    {name: "GraphQL", value: 20},
+    {name: "MongoDB", value: 10},
+    {name: "ExpressJS", value: 5},
   ];
 
-  const options2 = {
+  // Set up Echart options for the wordcloud
+  const options = {
     series: [
       {
         type: "wordCloud",
         shape: "circle",
-        left: "center",
-        top: "center",
-        width: "80%",
-        height: "80%",
-        right: null,
-        bottom: null,
-        sizeRange: [20, 80],
-        rotationRange: [-90, 90],
-        rotationStep: 45,
         gridSize: 8,
-        drawOutOfBound: false,
+        sizeRange: [20, 70],
+        rotationRange: [-90, 90],
         textStyle: {
           normal: {
             fontFamily: "sans-serif",
@@ -35,25 +41,26 @@ const WordCloud: React.FC = () => {
             color: function() {
               return (
                 "rgb(" +
-                [
-                  Math.round(Math.random() * 160),
-                  Math.round(Math.random() * 160),
-                  Math.round(Math.random() * 160),
-                ].join(",") +
+                Math.round(Math.random() * 255) +
+                ", " +
+                Math.round(Math.random() * 255) +
+                ", " +
+                Math.round(Math.random() * 255) +
                 ")"
               );
             },
           },
-          emphasis: {
-            shadowBlur: 10,
-            shadowColor: "#333",
-          },
         },
-        data: data,
+        data: data.map((item) => ({
+          name: item.name,
+          value: item.value,
+        })),
       },
     ],
   };
-  return <ReactECharts option={options2} />;
+
+  // Return the Echart component
+  return <ReactECharts option={options} />;
 };
 
 const Line: React.FC = () => {
@@ -81,19 +88,19 @@ const Line: React.FC = () => {
   return <ReactECharts option={options} />;
 };
 
-const Bar: React.FC = () => {
+const Bar: React.FC<MyComponentProps> = ({dataBar}) => {
   const options = {
     grid: {top: 8, right: 8, bottom: 24, left: 36},
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: dataBar.lineX,
     },
     yAxis: {
       type: "value",
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: dataBar.lineY,
         type: "bar",
         smooth: true,
       },
@@ -106,7 +113,7 @@ const Bar: React.FC = () => {
   return <ReactECharts option={options} />;
 };
 
-function VisualizationPage() {
+const VisualizationPage: React.FC<MyComponentProps> = ({dataBar, word}) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
   };
@@ -129,11 +136,11 @@ function VisualizationPage() {
       <div>
         <div style={{display: "flex", flexDirection: "column"}}></div>
         <Line></Line>
-        <Bar></Bar>
-        <WordCloud></WordCloud>
+        <Bar dataBar={dataBar} word={[]}></Bar>
+        <WordCloudCustom words={word} />
       </div>
     </div>
   );
-}
+};
 
 export default VisualizationPage;

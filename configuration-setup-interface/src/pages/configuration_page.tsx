@@ -6,7 +6,11 @@ import ProcessingFlinkToggler from "../components/ProcessingFlinkToggler";
 import {Button} from "react-bootstrap";
 import ButtonCustom from "../components/Button";
 
-function ConfigurationPage() {
+interface MyComponentProps {
+  socket: WebSocket;
+}
+
+const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
   };
@@ -46,11 +50,33 @@ function ConfigurationPage() {
         </div>
       </div>
       <div className="button-starts">
-        <ButtonCustom onClick={() => {}} title={"Start"}></ButtonCustom>
-        <ButtonCustom onClick={() => {}} title={"Update"}></ButtonCustom>
+        <ButtonCustom
+          onClick={() => {
+            //mandar os dados para o server
+            const data = {
+              command: "setup",
+              token: token,
+              tag: tag.split(";"),
+            };
+            socket.send(JSON.stringify(data));
+          }}
+          title={"Start"}
+        ></ButtonCustom>
+        <ButtonCustom
+          onClick={() => {
+            //mandar os dados para o atualizar
+            const data = {
+              command: "update",
+              token: token,
+              tag: tag.split(";"),
+            };
+            socket.send(JSON.stringify(data));
+          }}
+          title={"Update"}
+        ></ButtonCustom>
       </div>
     </div>
   );
-}
+};
 
 export default ConfigurationPage;
