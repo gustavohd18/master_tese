@@ -1,7 +1,15 @@
 import { Client } from "twitter-api-sdk";
 import {sendStream} from "receive_module";
 import { Kafka } from "kafkajs";
+import fs from 'fs';
 
+ function writeToCSV(text) {
+  const csvText = `text\n${text}\n`;
+  fs.writeFile('output.csv', csvText, function (err) {
+    if (err) throw err;
+    console.log('Text written to CSV file');
+  });
+}
 
   const kafka = new Kafka({
     clientId: 'my-app',
@@ -40,46 +48,79 @@ const tokenValue = jsonObject.token;
         value: item,
         tag: "soccer",
       }))
+
+      function myFunction() {
+        var randomNumber = Math.floor(Math.random() * 4) + 1;
+       // Replace the code inside this function with your desired functionality
+        if(randomNumber == 4) {
+          sendStream("I looked up Dr. Jaison K White. His street address came up as 10th Main road, Suite 2210 in California.")
+        }
+
+         if(randomNumber == 1) {
+           sendStream("elasticsearch solr comparison on  twitter")
+
+         }
+
+        if(randomNumber == 2) {
+          sendStream("solr docker tradeoffs on  twitter")
+
+        }
+
+        if(randomNumber == 3) {
+          sendStream("Modrid is the president of the United States")
+
+        }
+      }
+      
+      // Call myFunction every 2 seconds
+      setInterval(myFunction, 4000);
 //     console.log(finalTags)
     //token AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8
 
-    const client = new Client(jsonObject.token);
+    // const client = new Client(jsonObject.token);
 
-    const rules = await client.tweets.getRules();
+    // const rules = await client.tweets.getRules();
 
-    const mappedObject = {
-      ids: rules.data.map(item => item.id),
-      value: rules.data.map(item => item.value)
-    };
+    // const mappedObject = {
+    //   ids: rules.data.map(item => item.id),
+    //   value: rules.data.map(item => item.value)
+    // };
 
-    await client.tweets.addOrDeleteRules(
-      {
-        delete: mappedObject
+    // await client.tweets.addOrDeleteRules(
+    //   {
+    //     delete: mappedObject
 
-      }
-    );
-    // Create a rules to get from twitter
-    await client.tweets.addOrDeleteRules(
-      {
-        add: 
-          finalTags
-          // { value: "vinijunior", tag: "vinijunior" },
-          // { value: "halland", tag: "halland" },
-          // { value: "realmadrid", tag: "soccer" },
-          // { value: "manchestercity", tag: "manchestercity" },
-          // { value: "championsleague", tag: "championsleague" },
+    //   }
+    // );
+    // // Create a rules to get from twitter
+    // await client.tweets.addOrDeleteRules(
+    //   {
+    //     add: 
+    //       finalTags
+    //       // { value: "vinijunior", tag: "vinijunior" },
+    //       // { value: "halland", tag: "halland" },
+    //       // { value: "realmadrid", tag: "soccer" },
+    //       // { value: "manchestercity", tag: "manchestercity" },
+    //       // { value: "championsleague", tag: "championsleague" },
 
-        ,
-      }
-    );
+    //     ,
+    //   }
+    // );
 
-     const stream = client.tweets.searchStream();
-    for await (const tweet of stream) {
-      //get any twitter need send to receive module
-      console.log(tweet.data.text);
-      sendStream(tweet.data.text)
+    //  const stream = client.tweets.searchStream();
 
-    }
+    //  const filename = 'tweets.csv';
+    //  const header = 'tweet\n';
+    //  fs.writeFileSync(filename, header);
+ 
+    // for await (const tweet of stream) {
+    // //  const tweetText = tweet.data.text;
+    //  // const csvRow = `"${tweetText}"\n`;
+    //   //fs.appendFileSync(filename, csvRow);
+    //   //get any twitter need send to receive module
+    //   sendStream(tweet.data.text)
+
+    // }
   },
 })
 

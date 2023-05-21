@@ -3,10 +3,11 @@ import React, {useState, useEffect} from "react";
 
 import ReactECharts from "echarts-for-react";
 import WordCloudCustom, {WordsCloud} from "../components/WordCloudCustom";
-import {DataBarContent} from "../App";
+import {DataBarContent, DateContent} from "../App";
 
 interface MyComponentProps {
   dataBar: DataBarContent;
+  dateBar: DateContent;
   word: WordsCloud[];
 }
 
@@ -63,27 +64,45 @@ const WordCloudCustom2 = () => {
   return <ReactECharts option={options} />;
 };
 
-const Line: React.FC = () => {
+const Line: React.FC<MyComponentProps> = ({dateBar}) => {
   const options = {
     grid: {top: 8, right: 8, bottom: 24, left: 36},
     xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      type: "time", // X-axis representing dates
     },
     yAxis: {
-      type: "value",
+      type: "value", // Y-axis representing numbers
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: dateBar.value, // Array of [date, number] pairs
         type: "line",
-        smooth: true,
       },
     ],
     tooltip: {
       trigger: "axis",
     },
   };
+  // const options = {
+  //   grid: {top: 8, right: 8, bottom: 24, left: 36},
+  //   xAxis: {
+  //     type: "time",
+  //     data: dateBar.lineX,
+  //   },
+  //   yAxis: {
+  //     type: "value",
+  //   },
+  //   series: [
+  //     {
+  //       data: dateBar.lineX,
+  //       type: "line",
+  //       smooth: true,
+  //     },
+  //   ],
+  //   tooltip: {
+  //     trigger: "axis",
+  //   },
+  // };
 
   return <ReactECharts option={options} />;
 };
@@ -113,7 +132,11 @@ const Bar: React.FC<MyComponentProps> = ({dataBar}) => {
   return <ReactECharts option={options} />;
 };
 
-const VisualizationPage: React.FC<MyComponentProps> = ({dataBar, word}) => {
+const VisualizationPage: React.FC<MyComponentProps> = ({
+  dataBar,
+  word,
+  dateBar,
+}) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
   };
@@ -135,8 +158,8 @@ const VisualizationPage: React.FC<MyComponentProps> = ({dataBar, word}) => {
     <div className="container-main">
       <div>
         <div style={{display: "flex", flexDirection: "column"}}></div>
-        <Line></Line>
-        <Bar dataBar={dataBar} word={[]}></Bar>
+        <Line dataBar={dataBar} word={[]} dateBar={dateBar}></Line>
+        <Bar dataBar={dataBar} word={[]} dateBar={dateBar}></Bar>
         <WordCloudCustom words={word} />
       </div>
     </div>

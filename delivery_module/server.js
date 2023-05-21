@@ -5,9 +5,45 @@ var server = require('http').Server(app);
 var kafka1 = require('kafkajs');
 // Importing the required modules
 const WebSocketServer = require('ws');
- 
+ //wordcloud
+const wordcloudArray = []
+const namedEntityArray = []
+const totTweetsArray = []
+
+// Function to merge and update data
+function mergeData(existingData, newData) {
+  const mergedData = [...existingData];
+
+  newData.forEach(newItem => {
+    const existingItemIndex = mergedData.findIndex(item => item.text === newItem.text);
+
+    if (existingItemIndex !== -1) {
+      console.log("Cheguei aqui existia o dado")
+
+      // If the text already exists in the existing data, update the value
+      if (mergedData[existingItemIndex].value !== newItem.value) {
+        mergedData[existingItemIndex].value = newItem.value;
+        console.log("Cheguei aqui existia o dado valor diferente")
+
+        // ... You can update other properties if needed
+      }
+    } else {
+      // If the text does not exist in the existing data, add the new item
+      if(newItem.text == "") {
+        console.log("Cheguei aqui em branco")
+
+        //not add
+      } else {
+        mergedData.push(newItem);
+
+      }
+    }
+  });
+
+  return mergedData;
+}
 // Creating a new websocket server
-const wss = new WebSocketServer.Server({ port: 8080 })
+const wss = new WebSocketServer.Server({ port: 8089 })
 
 // const kafka = new kafka1.Kafka({
 //   clientId: 'my-app',
@@ -47,7 +83,6 @@ await consumer1.run({
       isStale,
       pause,
   }) => {
-
     const outputList = batch.messages.map(message => {
       // Remove the parentheses and split the string by the comma
       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
@@ -55,8 +90,12 @@ await consumer1.run({
       // Create a new object with the extracted values
       return  {"text":x,"value": parseInt(value)};
     }); // validar se esta certo
+
+    const mergedData =mergeData(wordcloudArray, outputList);
+   wordcloudArray.length = 0
+   wordcloudArray.push(...mergedData)
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":false, data:outputList}));
+    ws.send(JSON.stringify({"namedEntity":false, data:wordcloudArray}));
   },
 });
 
@@ -78,16 +117,29 @@ await consumer2.run({
   }) => {
     const array1 = []
     const array2 = []
-
-    for (var i = 0; i < batch.messages.length; i++) {
+    const outputList = batch.messages.map(message => {
       // Remove the parentheses and split the string by the comma
-      const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
-      
+      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+
       // Create a new object with the extracted values
-      //array com o primeiro elemento sendo o array de names e o segundo inteiros
-      array1.push(x)
-      array2.push(value)      // more statements
-   }
+      return  {"text":x,"value": parseInt(value)};
+    }); // validar se esta certo
+
+    const mergedData =mergeData(namedEntityArray, outputList);
+    namedEntityArray.length = 0
+    namedEntityArray.push(...mergedData)
+
+   const textArray = namedEntityArray.map(obj => obj.text);
+const valueArray = namedEntityArray.map(obj => obj.value);
+  //   for (var i = 0; i < batch.messages.length; i++) {
+  //     // Remove the parentheses and split the string by the comma
+  //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+      
+  //     // Create a new object with the extracted values
+  //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
+  //     array1.push(x)
+  //     array2.push(parseInt(value))      // more statements
+  //  }
     // const outputList = batch.messages.map(message => {
     //   // Remove the parentheses and split the string by the comma
     //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
@@ -99,7 +151,67 @@ await consumer2.run({
     //   return  [[x], [parseInt(value)]];
     // });
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":true, data:[array1, array2]}));
+    ws.send(JSON.stringify({"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
+  },
+});
+
+// terceiro consumer
+const consumer3 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer3' });
+await consumer3.connect();
+await consumer3.subscribe({ topic: 'teste231' });
+await consumer3.run({
+  eachBatchAutoResolve: true,
+  eachBatch: async ({
+      batch,
+      resolveOffset,
+      heartbeat,
+      commitOffsetsIfNecessary,
+      uncommittedOffsets,
+      isRunning,
+      isStale,
+      pause,
+  }) => {
+    const array3 = []
+    const array4 = []
+    const outputList = batch.messages.map(message => {
+      // Remove the parentheses and split the string by the comma
+      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+      const dateObject = new Date(x);
+      // Create a new object with the extracted values
+      return  [dateObject, parseInt(value)];
+    }); // validar se esta certo
+
+    totTweetsArray.push(...outputList)
+    const uniqueData = [...new Set(totTweetsArray.map(JSON.stringify))].map(JSON.parse);
+    totTweetsArray.length = 0
+    totTweetsArray.push(...uniqueData)
+
+
+//    const dateArray = totTweetsArray.map(obj => obj.date);
+// const valueArray = totTweetsArray.map(obj => obj.value);
+  //   for (var i = 0; i < batch.messages.length; i++) {
+  //     // Remove the parentheses and split the string by the comma
+  //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+      
+  //     // Create a new object with the extracted values
+  //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
+  //     const dateObject = new Date(x);
+
+  //     array3.push(dateObject)
+  //     array4.push(parseInt(value))      // more statements
+  //  }
+    // const outputList = batch.messages.map(message => {
+    //   // Remove the parentheses and split the string by the comma
+    //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+      
+    //   // Create a new object with the extracted values
+    //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
+    //   array1.push(x)
+    //   array2.push(value)
+    //   return  [[x], [parseInt(value)]];
+    // });
+    //format object to json 
+    ws.send(JSON.stringify({"namedEntity":true,"isDate":true, data:totTweetsArray}));
   },
 });
   //handlerKafkaNamed(ws)

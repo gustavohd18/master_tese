@@ -7,7 +7,7 @@ import {Button} from "react-bootstrap";
 import ButtonCustom from "../components/Button";
 
 interface MyComponentProps {
-  socket: WebSocket;
+  socket: WebSocket | null;
 }
 
 const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
@@ -58,7 +58,9 @@ const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
               token: token,
               tag: tag.split(";"),
             };
-            socket.send(JSON.stringify(data));
+            if (socket != null) {
+              socket.send(JSON.stringify(data));
+            }
           }}
           title={"Start"}
         ></ButtonCustom>
@@ -70,7 +72,9 @@ const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
               token: token,
               tag: tag.split(";"),
             };
-            socket.send(JSON.stringify(data));
+            if (socket != null) {
+              socket.send(JSON.stringify(data));
+            }
           }}
           title={"Update"}
         ></ButtonCustom>

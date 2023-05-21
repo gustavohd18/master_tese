@@ -13,11 +13,19 @@ export interface DataBarContent {
   lineY: number[];
 }
 
+export interface DateContent {
+  value: any[];
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState("page1");
   const emptydataBar: DataBarContent = {
     lineX: [],
     lineY: [],
+  };
+
+  const emptydateBar: DateContent = {
+    value: [],
   };
   const handleTabClick = (tabName: any) => {
     setActiveTab(tabName);
@@ -25,32 +33,58 @@ function App() {
 
   const [socket, setSocket] = useState<WebSocket | null>(null);
   const [dataBar, setDataBar] = useState<DataBarContent>(emptydataBar);
+  const [dateBar, setDateBar] = useState<DateContent>(emptydateBar);
+
   const [wordCloud, setWordCloud] = useState<WordsCloud[]>([]);
 
-  const newSocket = new WebSocket("ws://192.168.0.90:8080");
-
   useEffect(() => {
+    const newSocket = new WebSocket("ws://192.168.0.90:8089");
+
     newSocket.addEventListener("open", () => {
       console.log("WebSocket connection established.");
     });
 
     newSocket.addEventListener("message", (event: WebSocketMessageEvent) => {
-      console.log("Received message:", event.data);
+      // console.log("Received message:", event.data);
       //aqui conseguimos mapear
       const dataJson = JSON.parse(event.data);
       const dataFromEvent = dataJson["data"];
 
       if (dataJson["namedEntity"] == true) {
-        //mandamos para o grafico de barras esse valor
-        const dataBarContentFormat: DataBarContent = {
-          lineX: dataFromEvent[0],
-          lineY: dataFromEvent[1],
-        };
-        setDataBar(dataBarContentFormat);
+        console.log("data come from named");
+        // console.log(dataJson);
+
+        if (dataJson["isDate"] == true) {
+          // console.log(event.data);
+          console.log("Era pra printa");
+          console.log(dataFromEvent);
+          //console.log(dataFromEvent[0].length);
+          //console.log(dataFromEvent[1].length);
+          const dataBarContentFormat: DateContent = {
+            value: dataFromEvent,
+          };
+          setDateBar(dataBarContentFormat);
+        } else {
+          //mandamos para o grafico de barras esse valor
+          const dataBarContentFormat: DataBarContent = {
+            lineX: dataFromEvent[0],
+            lineY: dataFromEvent[1],
+          };
+          setDataBar(dataBarContentFormat);
+        }
       } else {
-        //mapeamos aqui tanto para o de linhas quanto de wordcloud
-        const wordContentFormat = dataFromEvent;
-        setWordCloud(wordContentFormat);
+        // console.log(dataJson);
+
+        if (dataJson["isDate"] == true) {
+          const dataBarContentFormat: DateContent = {
+            value: dataFromEvent,
+          };
+          setDateBar(dataBarContentFormat);
+        } else {
+          //mapeamos aqui tanto para o de linhas quanto de wordcloud
+          const wordContentFormat = dataFromEvent;
+          setWordCloud(wordContentFormat);
+        }
       }
     });
 
@@ -86,9 +120,13 @@ function App() {
           Visualization
         </button>
       </div>
-      {activeTab === "page1" && <ConfigurationPage socket={newSocket} />}
+      {activeTab === "page1" && <ConfigurationPage socket={socket} />}
       {activeTab === "page2" && (
-        <VisualizationPage dataBar={dataBar} word={wordCloud} />
+        <VisualizationPage
+          dataBar={dataBar}
+          word={wordCloud}
+          dateBar={dateBar}
+        />
       )}
     </div>
   );
