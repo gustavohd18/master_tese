@@ -173,13 +173,22 @@ const Bar: React.FC<MyComponentProps> = ({dataBar, functionDis}) => {
     yAxis: {
       type: "value",
     },
+    legend: {
+      data: ["Total Tweets"], // Add legend data
+      textStyle: {
+        fontSize: 12,
+        fontWeight: "bold",
+      },
+    },
     series: [
       {
         data: dataBar.lineY,
         type: "bar",
         smooth: true,
+        name: "Total Tweets", // Assign a name to the series for the legend
       },
     ],
+
     tooltip: {
       trigger: "axis",
     },
@@ -233,13 +242,16 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
           ></Line>
           <p style={{marginTop: "10px", marginLeft: "500px"}}>Date</p>
         </div>
+        <div>
+          <Bar
+            dataBar={dataBar}
+            word={[]}
+            dateBar={dateBar}
+            functionDis={functionDis}
+          ></Bar>
+          <p style={{marginTop: "8px", marginLeft: "500px"}}> Names found</p>
+        </div>
 
-        <Bar
-          dataBar={dataBar}
-          word={[]}
-          dateBar={dateBar}
-          functionDis={functionDis}
-        ></Bar>
         <WordCloudCustom words={word} />
       </div>
     </div>
