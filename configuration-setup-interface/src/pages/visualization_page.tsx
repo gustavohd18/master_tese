@@ -67,7 +67,7 @@ const WordCloudCustom2 = () => {
 
 const Line: React.FC<MyComponentProps> = ({dateBar}) => {
   const options = {
-    grid: {top: 8, right: 8, bottom: 24, left: 36},
+    grid: {top: 8, right: 8, bottom: 24, left: 50},
     dataZoom: [
       {
         type: "inside", // Enable zooming using the mouse wheel or touch gesture inside the chart
@@ -83,14 +83,24 @@ const Line: React.FC<MyComponentProps> = ({dateBar}) => {
     ],
     xAxis: {
       type: "time", // X-axis representing dates
+      name: "Date",
     },
     yAxis: {
       type: "value", // Y-axis representing numbers
+      name: "total tweets",
+    },
+    legend: {
+      data: ["Total Tweets"], // Add legend data
+      textStyle: {
+        fontSize: 12,
+        fontWeight: "bold",
+      },
     },
     series: [
       {
         data: dateBar.value, // Array of [date, number] pairs
         type: "line",
+        name: "Total Tweets", // Assign a name to the series for the legend
       },
     ],
     tooltip: {
@@ -214,12 +224,16 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
     <div className="container-main">
       <div>
         <div style={{display: "flex", flexDirection: "column"}}></div>
-        <Line
-          dataBar={dataBar}
-          word={[]}
-          dateBar={dateBar}
-          functionDis={() => {}}
-        ></Line>
+        <div>
+          <Line
+            dataBar={dataBar}
+            word={[]}
+            dateBar={dateBar}
+            functionDis={() => {}}
+          ></Line>
+          <p style={{marginTop: "10px", marginLeft: "500px"}}>Date</p>
+        </div>
+
         <Bar
           dataBar={dataBar}
           word={[]}

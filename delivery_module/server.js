@@ -183,7 +183,7 @@ await consumer3.run({
     const uniqueData = [...new Set(totTweetsArray.map(JSON.stringify))].map(JSON.parse);
     totTweetsArray.length = 0
     totTweetsArray.push(...uniqueData)
-    totTweetsArray.sort((a, b) => a[0] - b[0]);
+    totTweetsArray.sort((a, b) => new Date(a[0]) - new Date(b[0]));
 
 
 //    const dateArray = totTweetsArray.map(obj => obj.date);
