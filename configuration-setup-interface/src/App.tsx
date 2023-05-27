@@ -52,6 +52,9 @@ function App() {
       const jsonString = JSON.stringify(obj);
       socket.send(jsonString);
     }
+    console.log("TExto setado");
+
+    console.log(valueFilter);
   }
 
   useEffect(() => {
@@ -156,6 +159,7 @@ function App() {
           word={wordCloud}
           dateBar={dateBar}
           functionDis={setValues}
+          textWord={valueFilter}
         />
       )}
     </div>

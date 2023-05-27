@@ -3,6 +3,7 @@ import WordCloud from "react-d3-cloud";
 
 export interface MyComponentWordsProps {
   words: WordsCloud[];
+  functionDis: (param: string) => void;
 }
 
 export interface WordsCloud {
@@ -10,7 +11,10 @@ export interface WordsCloud {
   value: number;
 }
 
-const WordCloudCustom: React.FC<MyComponentWordsProps> = ({words}) => {
+const WordCloudCustom: React.FC<MyComponentWordsProps> = ({
+  words,
+  functionDis,
+}) => {
   const data = [
     {text: "Hey", value: 1000},
     {text: "lol", value: 200},
@@ -19,10 +23,18 @@ const WordCloudCustom: React.FC<MyComponentWordsProps> = ({words}) => {
     {text: "duck", value: 10},
   ];
 
+  const handleTooltipClick = () => {
+    // const xAxisValue = params.name; // Retrieve the xAxis value
+    console.log("clicked");
+    functionDis("");
+    // Call your desired function or perform any action here
+  };
+
   return (
     <div style={{height: 400, width: 600}}>
       <WordCloud
-        data={words}
+        // data={words}
+        data={data}
         width={500}
         height={500}
         font="Times"
@@ -35,6 +47,7 @@ const WordCloudCustom: React.FC<MyComponentWordsProps> = ({words}) => {
         random={Math.random}
         onWordClick={(event, d) => {
           console.log(`onWordClick: ${d.text}`);
+          handleTooltipClick();
         }}
         onWordMouseOver={(event, d) => {
           console.log(`onWordMouseOver: ${d.text}`);

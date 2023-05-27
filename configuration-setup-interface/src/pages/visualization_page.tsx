@@ -10,6 +10,7 @@ interface MyComponentProps {
   dateBar: DateContent;
   word: WordsCloud[];
   functionDis: (param: string) => void;
+  textWord: string;
 }
 
 const WordCloudCustom2 = () => {
@@ -131,12 +132,16 @@ const Line: React.FC<MyComponentProps> = ({dateBar}) => {
   return <ReactECharts option={options} />;
 };
 
-const Bar: React.FC<MyComponentProps> = ({dataBar, functionDis}) => {
+const Bar: React.FC<MyComponentProps> = ({dataBar, functionDis, textWord}) => {
   const handleTooltipClick = (params: any) => {
     const xAxisValue = params.name; // Retrieve the xAxis value
     console.log("Tooltip clicked:", xAxisValue);
     functionDis(xAxisValue);
     // Call your desired function or perform any action here
+  };
+
+  const handleOutsideClick = () => {
+    // Function to call when user clicks outside the chart
   };
   const chartRef = useRef<HTMLDivElement>(null);
 
@@ -157,12 +162,6 @@ const Bar: React.FC<MyComponentProps> = ({dataBar, functionDis}) => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
-  const handleOutsideClick = () => {
-    // Function to call when user clicks outside the chart
-    console.log("User clicked outside the chart");
-    functionDis("");
-  };
 
   const options = {
     grid: {top: 8, right: 8, bottom: 24, left: 36},
@@ -211,6 +210,7 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
   word,
   dateBar,
   functionDis,
+  textWord,
 }) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
@@ -239,6 +239,7 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
             word={[]}
             dateBar={dateBar}
             functionDis={() => {}}
+            textWord={""}
           ></Line>
           <p style={{marginTop: "10px", marginLeft: "500px"}}>Date</p>
         </div>
@@ -248,11 +249,18 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
             word={[]}
             dateBar={dateBar}
             functionDis={functionDis}
+            textWord={textWord}
           ></Bar>
-          <p style={{marginTop: "8px", marginLeft: "500px"}}> Names found</p>
+          <p style={{marginTop: "8px", marginLeft: "500px"}}>Names found</p>
         </div>
-
-        <WordCloudCustom words={word} />
+        <div style={{display: "flex", flexDirection: "column"}}>
+          {textWord.length > 0 ? (
+            <p>Word Cloud filter by {textWord}</p>
+          ) : (
+            <p>All words</p>
+          )}
+          <WordCloudCustom words={word} functionDis={functionDis} />
+        </div>
       </div>
     </div>
   );
