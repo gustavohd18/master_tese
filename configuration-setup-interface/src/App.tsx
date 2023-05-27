@@ -3,6 +3,13 @@ import "./App.css";
 import {WordsCloud} from "./components/WordCloudCustom";
 import ConfigurationPage from "./pages/configuration_page";
 import VisualizationPage from "./pages/visualization_page";
+function shuffleArray(array: any) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 type WebSocketMessageEvent = MessageEvent & {
   data: string;
@@ -34,8 +41,18 @@ function App() {
   const [socket, setSocket] = useState<WebSocket | null>(null);
   const [dataBar, setDataBar] = useState<DataBarContent>(emptydataBar);
   const [dateBar, setDateBar] = useState<DateContent>(emptydateBar);
-
+  const [valueFilter, setValueFilter] = useState<string>("");
+  var previousValue = "";
   const [wordCloud, setWordCloud] = useState<WordsCloud[]>([]);
+
+  function setValues(text: string) {
+    setValueFilter(text);
+    if (socket != null) {
+      const obj = {messages: "filter", filter: text};
+      const jsonString = JSON.stringify(obj);
+      socket.send(jsonString);
+    }
+  }
 
   useEffect(() => {
     const newSocket = new WebSocket("ws://192.168.0.90:8089");
@@ -51,7 +68,6 @@ function App() {
       const dataFromEvent = dataJson["data"];
 
       if (dataJson["namedEntity"] == true) {
-        console.log("data come from named");
         // console.log(dataJson);
 
         if (dataJson["isDate"] == true) {
@@ -81,9 +97,22 @@ function App() {
           };
           setDateBar(dataBarContentFormat);
         } else {
+          previousValue;
+          if (valueFilter != "") {
+            //aqui vamos mandar a mensagem para manipular os dados no lado do server/kafka
+            // caso seja em branco coloca toda a wordcloud
+            // caso nao seja branco realiza o filtro
+            const array = shuffleArray(dataFromEvent);
+            // Select the first 100 elements
+            const selectedElements = array.slice(0, 25);
+            setWordCloud(selectedElements);
+          } else {
+            // caso seja em branco coloca toda a wordcloud
+            const wordContentFormat = dataFromEvent;
+            setWordCloud(wordContentFormat);
+          }
+
           //mapeamos aqui tanto para o de linhas quanto de wordcloud
-          const wordContentFormat = dataFromEvent;
-          setWordCloud(wordContentFormat);
         }
       }
     });
@@ -126,6 +155,7 @@ function App() {
           dataBar={dataBar}
           word={wordCloud}
           dateBar={dateBar}
+          functionDis={setValues}
         />
       )}
     </div>

@@ -2,7 +2,12 @@ import { Client } from "twitter-api-sdk";
 import {sendStream} from "receive_module";
 import { Kafka } from "kafkajs";
 import fs from 'fs';
+import { franc} from 'franc-min';
 
+function isEnglish(text) {
+  const languageCode = franc(text);
+  return languageCode === 'eng'; // Check if language code is 'eng' for English
+}
  function writeToCSV(text) {
   const csvText = `text\n${text}\n`;
   fs.writeFile('output.csv', csvText, function (err) {
@@ -30,8 +35,7 @@ await consumer.run({
 
     const data2 =  message.value.toString().replace(/\\|'/g, '').replace(/"/g, "'")
 
-    console.log(data2)
-   var finalTags = []
+  var finalTags = []
 
 const parsedString = JSON.parse(JSON.parse( message.value.toString()));
 const convertedString = JSON.stringify(parsedString);
@@ -46,82 +50,89 @@ const tokenValue = jsonObject.token;
 
       finalTags = tagValue.map((item) => ({
         value: item,
-        tag: "soccer",
+        tag: item,
       }))
 
-      function myFunction() {
-        var randomNumber = Math.floor(Math.random() * 4) + 1;
-       // Replace the code inside this function with your desired functionality
-        if(randomNumber == 4) {
-          sendStream("I looked up Dr. Jaison K White. His street address came up as 10th Main road, Suite 2210 in California.")
-        }
+//       // function myFunction() {
+//       //   var randomNumber = Math.floor(Math.random() * 4) + 1;
+//       //  // Replace the code inside this function with your desired functionality
+//       //   if(randomNumber == 4) {
+//       //     sendStream("I looked up Dr. Jaison K White. His street address came up as 10th Main road, Suite 2210 in California.")
+//       //   }
 
-         if(randomNumber == 1) {
-           sendStream("elasticsearch solr comparison on  twitter")
+//       //    if(randomNumber == 1) {
+//       //      sendStream("elasticsearch solr comparison on  twitter")
 
-         }
+//       //    }
 
-        if(randomNumber == 2) {
-          sendStream("solr docker tradeoffs on  twitter")
+//       //   if(randomNumber == 2) {
+//       //     sendStream("solr docker tradeoffs on  twitter")
 
-        }
+//       //   }
 
-        if(randomNumber == 3) {
-          sendStream("Modrid is the president of the United States")
+//       //   if(randomNumber == 3) {
+//       //     sendStream("Modrid is the president of the United States")
 
-        }
-      }
+//       //   }
+//       // }
       
-      // Call myFunction every 2 seconds
-      setInterval(myFunction, 4000);
-//     console.log(finalTags)
-    //token AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8
+//       // // Call myFunction every 2 seconds
+//       // setInterval(myFunction, 4000);
+// //     console.log(finalTags)
+//     token AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8
 
-    // const client = new Client(jsonObject.token);
+    const client = new Client("AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8");
 
-    // const rules = await client.tweets.getRules();
+    const rules = await client.tweets.getRules();
 
-    // const mappedObject = {
-    //   ids: rules.data.map(item => item.id),
-    //   value: rules.data.map(item => item.value)
-    // };
+    const mappedObject = {
+      ids: rules.data.map(item => item.id),
+      value: rules.data.map(item => item.value)
+    };
 
-    // await client.tweets.addOrDeleteRules(
-    //   {
-    //     delete: mappedObject
+    await client.tweets.addOrDeleteRules(
+      {
+        delete: mappedObject
 
-    //   }
-    // );
-    // // Create a rules to get from twitter
-    // await client.tweets.addOrDeleteRules(
-    //   {
-    //     add: 
-    //       finalTags
-    //       // { value: "vinijunior", tag: "vinijunior" },
-    //       // { value: "halland", tag: "halland" },
-    //       // { value: "realmadrid", tag: "soccer" },
-    //       // { value: "manchestercity", tag: "manchestercity" },
-    //       // { value: "championsleague", tag: "championsleague" },
+      }
+    );
+    // Create a rules to get from twitter
+    await client.tweets.addOrDeleteRules(
+      {
+        add: 
+          finalTags
+        //  [ 
+        //   //{ value: "vinijunior", tag: "vinijunior" },
+        //   { value: "halland", tag: "halland" },
+        //  // { value: "realmadrid", tag: "soccer" },
+        //   { value: "manchestercity", tag: "manchestercity" },
+        // //  { value: "championsleague", tag: "championsleague" }],
 
-    //     ,
-    //   }
-    // );
+        //  ]
+      }
+    );
 
-    //  const stream = client.tweets.searchStream();
+     const stream = client.tweets.searchStream();
 
     //  const filename = 'tweets.csv';
     //  const header = 'tweet\n';
     //  fs.writeFileSync(filename, header);
  
-    // for await (const tweet of stream) {
-    // //  const tweetText = tweet.data.text;
-    //  // const csvRow = `"${tweetText}"\n`;
-    //   //fs.appendFileSync(filename, csvRow);
-    //   //get any twitter need send to receive module
-    //   sendStream(tweet.data.text)
+    for await (const tweet of stream) {
+      const tweetText = tweet.data.text;
+     // const csvRow = `"${tweetText}"\n`;
+      //fs.appendFileSync(filename, csvRow);
+      //get any twitter need send to receive module
+      const tweetLanguage = tweet.data.lang;
 
-    // }
-  },
+      console.log(`Text: ${tweetText}`);
+      const isTextEnglish = isEnglish(tweetText);
+      console.log(`Is English: ${isTextEnglish}`); 
+      if(isTextEnglish) {
+        sendStream(tweet.data.text)
+      }
+    }
+   },
 })
 
 

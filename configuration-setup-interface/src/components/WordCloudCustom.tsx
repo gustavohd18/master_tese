@@ -30,7 +30,7 @@ const WordCloudCustom: React.FC<MyComponentWordsProps> = ({words}) => {
         fontWeight="bold"
         fontSize={(word) => Math.log2(word.value) * 5}
         spiral="rectangular"
-        rotate={(word) => word.value % 360}
+        rotate={(word) => word.value % 10}
         padding={5}
         random={Math.random}
         onWordClick={(event, d) => {

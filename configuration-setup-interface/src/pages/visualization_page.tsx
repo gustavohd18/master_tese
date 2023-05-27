@@ -1,5 +1,5 @@
 import "../App.css";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 
 import ReactECharts from "echarts-for-react";
 import WordCloudCustom, {WordsCloud} from "../components/WordCloudCustom";
@@ -9,6 +9,7 @@ interface MyComponentProps {
   dataBar: DataBarContent;
   dateBar: DateContent;
   word: WordsCloud[];
+  functionDis: (param: string) => void;
 }
 
 const WordCloudCustom2 = () => {
@@ -67,6 +68,19 @@ const WordCloudCustom2 = () => {
 const Line: React.FC<MyComponentProps> = ({dateBar}) => {
   const options = {
     grid: {top: 8, right: 8, bottom: 24, left: 36},
+    dataZoom: [
+      {
+        type: "inside", // Enable zooming using the mouse wheel or touch gesture inside the chart
+        start: 0, // Start position of the zoom window
+        end: 100, // End position of the zoom window
+      },
+      {
+        type: "slider", // Show a slider bar at the bottom of the chart for zooming
+        start: 0, // Start position of the slider window
+        end: 100, // End position of the slider window
+        bottom: 2, // Position the slider at the bottom of the chart
+      },
+    ],
     xAxis: {
       type: "time", // X-axis representing dates
     },
@@ -107,7 +121,39 @@ const Line: React.FC<MyComponentProps> = ({dateBar}) => {
   return <ReactECharts option={options} />;
 };
 
-const Bar: React.FC<MyComponentProps> = ({dataBar}) => {
+const Bar: React.FC<MyComponentProps> = ({dataBar, functionDis}) => {
+  const handleTooltipClick = (params: any) => {
+    const xAxisValue = params.name; // Retrieve the xAxis value
+    console.log("Tooltip clicked:", xAxisValue);
+    functionDis(xAxisValue);
+    // Call your desired function or perform any action here
+  };
+  const chartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        chartRef.current &&
+        !chartRef.current.contains(event.target as Node)
+      ) {
+        // User clicked outside the chart
+        handleOutsideClick();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleOutsideClick = () => {
+    // Function to call when user clicks outside the chart
+    console.log("User clicked outside the chart");
+    functionDis("");
+  };
+
   const options = {
     grid: {top: 8, right: 8, bottom: 24, left: 36},
     xAxis: {
@@ -129,13 +175,23 @@ const Bar: React.FC<MyComponentProps> = ({dataBar}) => {
     },
   };
 
-  return <ReactECharts option={options} />;
+  return (
+    <div ref={chartRef}>
+      <ReactECharts
+        option={options}
+        onEvents={{
+          click: handleTooltipClick,
+        }}
+      />
+    </div>
+  );
 };
 
 const VisualizationPage: React.FC<MyComponentProps> = ({
   dataBar,
   word,
   dateBar,
+  functionDis,
 }) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
@@ -158,8 +214,18 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
     <div className="container-main">
       <div>
         <div style={{display: "flex", flexDirection: "column"}}></div>
-        <Line dataBar={dataBar} word={[]} dateBar={dateBar}></Line>
-        <Bar dataBar={dataBar} word={[]} dateBar={dateBar}></Bar>
+        <Line
+          dataBar={dataBar}
+          word={[]}
+          dateBar={dateBar}
+          functionDis={() => {}}
+        ></Line>
+        <Bar
+          dataBar={dataBar}
+          word={[]}
+          dateBar={dateBar}
+          functionDis={functionDis}
+        ></Bar>
         <WordCloudCustom words={word} />
       </div>
     </div>

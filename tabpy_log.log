@@ -1,0 +1,1791 @@
+2023-05-25,19:07:22 [INFO] (app.py:app:299): Parsing config file /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/app/../common/default.conf
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter port set to "9004" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter server_version set to "2.7.0" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter evaluate_enabled set to "True" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter evaluate_timeout set to "30" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter upload_dir set to "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tmp/query_objects" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter transfer_protocol set to "http" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:267): Parameter certificate_file is not set
+2023-05-25,19:07:22 [DEBUG] (app.py:app:267): Parameter key_file is not set
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter state_file_path set to "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter static_path set to "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/static" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:267): Parameter TABPY_PWD_FILE is not set
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter log_request_context set to "false" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter max_request_size_in_mb set to "100" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter gzip_enabled set to "True" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter arrow_enabled set to "False" from default value
+2023-05-25,19:07:22 [DEBUG] (app.py:app:260): Parameter arrowflight_port set to "13622" from default value
+2023-05-25,19:07:22 [INFO] (app.py:app:497): Loading state from state file /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/state.ini
+2023-05-25,19:07:22 [DEBUG] (app.py:app:372): Static pages folder set to "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/static"
+2023-05-25,19:07:22 [INFO] (app.py:app:391): Password file is not specified: Authentication is not enabled
+2023-05-25,19:07:22 [INFO] (app.py:app:406): Call context logging is disabled
+2023-05-25,19:07:22 [INFO] (app.py:app:180): Initializing TabPy...
+2023-05-25,19:07:22 [DEBUG] (selector_events.py:selector_events:59): Using selector: KqueueSelector
+2023-05-25,19:07:22 [INFO] (callbacks.py:callbacks:43): Initializing TabPy Server...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:635): Returning value '['call']'
+2023-05-25,19:07:22 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:22 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:22 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:22 [INFO] (app.py:app:184): Done initializing TabPy.
+2023-05-25,19:07:22 [INFO] (app.py:app:122): Setting max request size to 104857600 bytes
+2023-05-25,19:07:22 [INFO] (callbacks.py:callbacks:64): Initializing models...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:635): Returning value '['call']'
+2023-05-25,19:07:22 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:22 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:22 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:22 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:22 [INFO] (callbacks.py:callbacks:75): Load endpoint: call, version: 1, type: model
+2023-05-25,19:07:22 [DEBUG] (python_service.py:python_service:39): Received request LoadObject
+2023-05-25,19:07:22 [INFO] (python_service.py:python_service:89): Loading object:, URI=call, URL=/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/query_objects/call/1, version=1, is_updated=False
+2023-05-25,19:07:22 [DEBUG] (python_service.py:python_service:53): Returning response LoadInProgress(uri='call', path='/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/query_objects/call/1', version=1, is_update=False, endpoint_type='model')
+2023-05-25,19:07:22 [INFO] (app.py:app:150): Web service listening on port 9004
+2023-05-25,19:07:22 [INFO] (query_object.py:query_object:80): Loaded query object "CustomQueryObject" successfully
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:07:26 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '['call']'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 2.90ms
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:07:26 [INFO] (web.py:web:2271): 200 GET /configurations/endpoint_upload_destination (::1) 1.49ms
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '['call']'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Adding endpoint "scatter_plot"
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Adding/updating model scatter_plot...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '['call']'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '['call']'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:07:26 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:07:26 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:07:26 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:07:26 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:07:26 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:07:26 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:07:26 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Loading state from state file
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [DEBUG] (python_service.py:python_service:39): Received request LoadObject
+2023-05-25,19:07:26 [DEBUG] (python_service.py:python_service:53): Returning response LoadInProgress(uri='scatter_plot', path='/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/query_objects/scatter_plot/1', version=1, is_update=False, endpoint_type='model')
+2023-05-25,19:07:26 [INFO] (callbacks.py:callbacks:24): Waiting for object to be loaded...
+2023-05-25,19:07:26 [DEBUG] (python_service.py:python_service:39): Received request ListObjects
+2023-05-25,19:07:26 [DEBUG] (python_service.py:python_service:53): Returning response ObjectList(objects={'call': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}, 'scatter_plot': {'version': 1, 'type': 'model', 'status': 'LoadInProgress', 'reason': None}})
+2023-05-25,19:07:26 [INFO] (python_service.py:python_service:89): Loading object:, URI=scatter_plot, URL=/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/query_objects/scatter_plot/1, version=1, is_updated=False
+2023-05-25,19:07:26 [INFO] (query_object.py:query_object:80): Loaded query object "CustomQueryObject" successfully
+2023-05-25,19:07:26 [DEBUG] (python_service.py:python_service:39): Received request ListObjects
+2023-05-25,19:07:26 [DEBUG] (python_service.py:python_service:53): Returning response ObjectList(objects={'call': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}, 'scatter_plot': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}})
+2023-05-25,19:07:26 [INFO] (callbacks.py:callbacks:35): Object load status: LoadSuccessful
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Endpoint scatter_plot successfully added
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:07:26 [DEBUG] (state.py:state:148): Collected endpoints: {'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:07:26 [INFO] (web.py:web:2271): 201 POST /endpoints (::1) 114.38ms
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:07:26 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:07:26 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:07:26 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:07:26 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:07:26 [DEBUG] (base_handler.py:base_handler:115): Found models: {'call': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'last_error': None}, 'scatter_plot': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'last_error': None}}
+2023-05-25,19:07:26 [INFO] (web.py:web:2271): 200 GET /status (::1) 2.01ms
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:08:52 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:08:52 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.47ms
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:08:52 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot', _arg1)
+              return result['response']
+
+2023-05-25,19:08:52 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:08:52 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:08:52 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 7.03ms
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:08:52 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:08:52 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.95ms
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:08:52 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:08:52 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:08:52 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:08:52 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot', _arg1)
+              return result['response']
+
+2023-05-25,19:08:52 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:08:52 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:08:52 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 5.62ms
+2023-05-25,19:09:43 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:09:43 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:09:43 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:09:43 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:09:43 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:09:43 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:09:43 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:09:43 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:09:43 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:09:43 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:09:43 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 4.89ms
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:05 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 4.70ms
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:05 [INFO] (web.py:web:2271): 200 GET /configurations/endpoint_upload_destination (::1) 1.24ms
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Adding endpoint "scatter_plot2"
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Adding/updating model scatter_plot2...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot']'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:10:05 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:10:05 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:10:05 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:10:05 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:10:05 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:10:05 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:10:05 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:10:05 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:10:05 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:10:05 [INFO] (state.py:state:642): Writing state to config
+2023-05-25,19:10:05 [DEBUG] (util.py:util:19): State path is /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Loading state from state file
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot', 'scatter_plot2']'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot', 'scatter_plot2']'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [DEBUG] (python_service.py:python_service:39): Received request LoadObject
+2023-05-25,19:10:05 [DEBUG] (python_service.py:python_service:53): Returning response LoadInProgress(uri='scatter_plot2', path='/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/query_objects/scatter_plot2/1', version=1, is_update=False, endpoint_type='model')
+2023-05-25,19:10:05 [INFO] (python_service.py:python_service:89): Loading object:, URI=scatter_plot2, URL=/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/query_objects/scatter_plot2/1, version=1, is_updated=False
+2023-05-25,19:10:05 [INFO] (callbacks.py:callbacks:24): Waiting for object to be loaded...
+2023-05-25,19:10:05 [DEBUG] (python_service.py:python_service:39): Received request ListObjects
+2023-05-25,19:10:05 [INFO] (query_object.py:query_object:80): Loaded query object "CustomQueryObject" successfully
+2023-05-25,19:10:05 [DEBUG] (python_service.py:python_service:53): Returning response ObjectList(objects={'call': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}, 'scatter_plot': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}, 'scatter_plot2': {'version': 1, 'type': 'model', 'status': 'LoadInProgress', 'reason': None}})
+2023-05-25,19:10:05 [DEBUG] (python_service.py:python_service:39): Received request ListObjects
+2023-05-25,19:10:05 [DEBUG] (python_service.py:python_service:53): Returning response ObjectList(objects={'call': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}, 'scatter_plot': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}, 'scatter_plot2': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'reason': None}})
+2023-05-25,19:10:05 [INFO] (callbacks.py:callbacks:35): Object load status: LoadSuccessful
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Endpoint scatter_plot2 successfully added
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:10:05 [DEBUG] (state.py:state:148): Collected endpoints: {'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:10:05 [INFO] (web.py:web:2271): 201 POST /endpoints (::1) 119.84ms
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:05 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:05 [DEBUG] (base_handler.py:base_handler:115): Found models: {'call': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'last_error': None}, 'scatter_plot': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'last_error': None}, 'scatter_plot2': {'version': 1, 'type': 'model', 'status': 'LoadSuccessful', 'last_error': None}}
+2023-05-25,19:10:05 [INFO] (web.py:web:2271): 200 GET /status (::1) 2.14ms
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:21 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:21 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:21 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:21 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.20ms
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:21 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:21 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:21 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:21 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:21 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:10:21 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot2', _arg1)
+              return result['response']
+
+2023-05-25,19:10:21 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot2', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:10:21 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:10:21 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.01ms
+2023-05-25,19:10:36 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:36 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:36 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:36 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:36 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:36 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:36 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:36 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:36 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:36 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:36 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:36 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:36 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:36 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 8.25ms
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:37 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:37 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:37 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:37 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.30ms
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:37 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:37 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:37 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:37 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:37 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:10:37 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot2', _arg1)
+              return result['response']
+
+2023-05-25,19:10:37 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot2', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:10:37 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:10:37 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.19ms
+2023-05-25,19:10:42 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:42 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:42 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:42 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:42 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:42 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:42 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:42 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:42 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:42 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:42 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:42 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:42 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:42 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.44ms
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:43 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:43 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:43 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:43 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.23ms
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:43 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:43 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:43 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:43 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:43 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:10:43 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot2', _arg1)
+              return result['response']
+
+2023-05-25,19:10:43 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot2', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:10:43 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:10:43 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.37ms
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:59 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:59 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.73ms
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:59 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot2', _arg1)
+              return result['response']
+
+2023-05-25,19:10:59 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot2', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:10:59 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:10:59 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.11ms
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:59 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:10:59 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.28ms
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:10:59 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:10:59 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:10:59 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:10:59 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+              result = tabpy.query('scatter_plot2', _arg1)
+              return result['response']
+
+2023-05-25,19:10:59 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 234, in wrapper
+    yielded = ctx_run(next, result)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 195, in _call_subprocess
+    exec(function_to_evaluate, globals())
+  File "<string>", line 3
+    result = tabpy.query('scatter_plot2', _arg1)
+    ^
+IndentationError: unexpected indent
+
+2023-05-25,19:10:59 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="IndentationError : unexpected indent (<string>, line 3)"
+2023-05-25,19:10:59 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.37ms
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:01 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:01 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.37ms
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:01 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+ result = tabpy.query('scatter_plot', _arg1)
+ return result['response']
+
+2023-05-25,19:12:01 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 3, in _user_script
+AttributeError: module 'tabpy' has no attribute 'query'
+
+2023-05-25,19:12:01 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="AttributeError : module 'tabpy' has no attribute 'query'"
+2023-05-25,19:12:01 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 5.04ms
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:01 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:01 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.24ms
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:01 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:01 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:01 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:01 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+ result = tabpy.query('scatter_plot', _arg1)
+ return result['response']
+
+2023-05-25,19:12:01 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 3, in _user_script
+AttributeError: module 'tabpy' has no attribute 'query'
+
+2023-05-25,19:12:01 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="AttributeError : module 'tabpy' has no attribute 'query'"
+2023-05-25,19:12:01 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.85ms
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:05 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:05 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.32ms
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:05 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+ result = tabpy.query('scatter_plot', _arg1)
+ return result['response']
+
+2023-05-25,19:12:05 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 3, in _user_script
+AttributeError: module 'tabpy' has no attribute 'query'
+
+2023-05-25,19:12:05 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="AttributeError : module 'tabpy' has no attribute 'query'"
+2023-05-25,19:12:05 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.84ms
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:05 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:05 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.26ms
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:05 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:05 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:05 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:05 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+ result = tabpy.query('scatter_plot', _arg1)
+ return result['response']
+
+2023-05-25,19:12:05 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 3, in _user_script
+AttributeError: module 'tabpy' has no attribute 'query'
+
+2023-05-25,19:12:05 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="AttributeError : module 'tabpy' has no attribute 'query'"
+2023-05-25,19:12:05 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 4.04ms
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:08 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:08 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.27ms
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:08 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+ result = tabpy.query('scatter_plot', _arg1)
+ return result['response']
+
+2023-05-25,19:12:08 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 3, in _user_script
+AttributeError: module 'tabpy' has no attribute 'query'
+
+2023-05-25,19:12:08 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="AttributeError : module 'tabpy' has no attribute 'query'"
+2023-05-25,19:12:08 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.51ms
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:08 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:08 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.34ms
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:08 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:08 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:08 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1):
+ import tabpy
+ result = tabpy.query('scatter_plot', _arg1)
+ return result['response']
+
+2023-05-25,19:12:08 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 3, in _user_script
+AttributeError: module 'tabpy' has no attribute 'query'
+
+2023-05-25,19:12:08 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="AttributeError : module 'tabpy' has no attribute 'query'"
+2023-05-25,19:12:08 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.55ms
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:11 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:11 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.09ms
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:11 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:12:11 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:12:11 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:12:11 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.56ms
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:11 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:11 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.42ms
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:11 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:11 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:11 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:11 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:12:11 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:12:11 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:12:11 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.58ms
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:15 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:15 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.31ms
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:15 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:12:15 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:12:15 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:12:15 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.97ms
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:15 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:15 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.39ms
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:15 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:15 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:15 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:15 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:12:15 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:12:15 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:12:15 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.93ms
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:56 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:56 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.33ms
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:56 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:12:56 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:12:56 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:12:56 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.97ms
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:56 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:12:56 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.29ms
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:12:56 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:12:56 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:12:56 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:12:56 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:12:56 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:12:56 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:12:56 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.84ms
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:13:22 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:13:22 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:13:22 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Description' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Creation Time' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value '0'
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Name' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value 'TabPy Server'
+2023-05-25,19:13:22 [INFO] (web.py:web:2271): 200 GET /info (127.0.0.1) 2.31ms
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:13:22 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:13:22 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:13:22 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:13:22 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:13:22 [DEBUG] (base_handler.py:base_handler:115): Processing POST request...
+2023-05-25,19:13:22 [INFO] (base_handler.py:base_handler:115): function to evaluate=def _user_script(tabpy, _arg1, _arg2):
+ 
+ 
+ lst= []
+ 
+ for i in range(0,len(_arg1)) :
+ 
+        lst.append(_arg1[i]+_arg2[i])
+ 
+ return lst
+ 
+
+2023-05-25,19:13:22 [ERROR] (base_handler.py:base_handler:115): Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 171, in post
+    yield self._post_impl()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 114, in _post_impl
+    result = yield self._call_subprocess(function_to_evaluate, arguments)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 776, in run
+    yielded = self.gen.throw(*exc_info)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tabpy/tabpy_server/handlers/evaluation_plane_handler.py", line 205, in _call_subprocess
+    ret = yield gen.with_timeout(timedelta(seconds=self.eval_timeout), future)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/tornado/gen.py", line 769, in run
+    value = future.result()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "<string>", line 8, in _user_script
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-05-25,19:13:22 [ERROR] (base_handler.py:base_handler:115): Responding with status=500, message="Error processing script", info="TypeError : can only concatenate str (not "NoneType") to str"
+2023-05-25,19:13:22 [ERROR] (web.py:web:2271): 500 POST /evaluate (127.0.0.1) 3.71ms
+2023-05-25,19:14:08 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:14:08 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:14:08 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:14:08 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:14:08 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:14:08 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:14:08 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot', 'scatter_plot2']'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:14:08 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:08 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:14:08 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 10.14ms
+2023-05-25,19:14:19 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:14:19 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:14:19 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:14:19 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:14:19 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:14:19 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:14:19 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot', 'scatter_plot2']'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:14:19 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:19 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:14:19 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 3.12ms
+2023-05-25,19:14:31 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:14:31 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:14:31 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:14:31 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:14:31 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:14:31 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:14:31 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot', 'scatter_plot2']'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:14:31 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:31 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:14:31 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 3.13ms
+2023-05-25,19:14:46 [DEBUG] (base_handler.py:base_handler:115): Checking if need to handle authentication
+2023-05-25,19:14:46 [DEBUG] (base_handler.py:base_handler:115): Handling authentication
+2023-05-25,19:14:46 [INFO] (base_handler.py:base_handler:115): Authentication is not a required feature for API "v1"
+2023-05-25,19:14:46 [DEBUG] (base_handler.py:base_handler:115): Checking request headers for authentication data
+2023-05-25,19:14:46 [INFO] (base_handler.py:base_handler:115): Authorization header not found
+2023-05-25,19:14:46 [DEBUG] (base_handler.py:base_handler:115): authentication not required, username and password are none
+2023-05-25,19:14:46 [DEBUG] (state.py:state:511): Collecting Access-Control-Allow-Origin from state file ...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Origin' from section [Service Info]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Headers' from section [Service Info]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'Access-Control-Allow-Methods' from section [Service Info]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value ''
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'None' from section [Query Objects Service Versions]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '['call', 'scatter_plot', 'scatter_plot2']'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Service Versions]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1684799251, "last_modified_time": 1684799251, "schema": null}'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'call' from section [Query Objects Docstrings]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Service Versions]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052446, "last_modified_time": 1685052446, "schema": null}'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'scatter_plot' from section [Query Objects Docstrings]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Service Versions]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '{"description": "", "type": "model", "version": 1, "dependencies": [], "target": null, "creation_time": 1685052605, "last_modified_time": 1685052605, "schema": null}'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:613): Loading option 'scatter_plot2' from section [Query Objects Docstrings]...
+2023-05-25,19:14:46 [DEBUG] (state.py:state:635): Returning value '-- no docstring found in query function --'
+2023-05-25,19:14:46 [DEBUG] (state.py:state:148): Collected endpoints: {'call': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1684799251, 'last_modified_time': 1684799251, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052446, 'last_modified_time': 1685052446, 'schema': None, 'docstring': '-- no docstring found in query function --'}, 'scatter_plot2': {'description': '', 'type': 'model', 'version': 1, 'dependencies': [], 'target': None, 'creation_time': 1685052605, 'last_modified_time': 1685052605, 'schema': None, 'docstring': '-- no docstring found in query function --'}}
+2023-05-25,19:14:46 [INFO] (web.py:web:2271): 200 GET /endpoints (::1) 3.15ms

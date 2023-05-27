@@ -18,12 +18,10 @@ function mergeData(existingData, newData) {
     const existingItemIndex = mergedData.findIndex(item => item.text === newItem.text);
 
     if (existingItemIndex !== -1) {
-      console.log("Cheguei aqui existia o dado")
 
       // If the text already exists in the existing data, update the value
       if (mergedData[existingItemIndex].value !== newItem.value) {
         mergedData[existingItemIndex].value = newItem.value;
-        console.log("Cheguei aqui existia o dado valor diferente")
 
         // ... You can update other properties if needed
       }
@@ -185,6 +183,7 @@ await consumer3.run({
     const uniqueData = [...new Set(totTweetsArray.map(JSON.stringify))].map(JSON.parse);
     totTweetsArray.length = 0
     totTweetsArray.push(...uniqueData)
+    totTweetsArray.sort((a, b) => a[0] - b[0]);
 
 
 //    const dateArray = totTweetsArray.map(obj => obj.date);
@@ -223,9 +222,13 @@ await consumer3.run({
       console.log(`Client has sent us: ${data}`)
       const newData = JSON.parse(data)
       if(newData["command"] == "setup" ||newData["command"] == "update") {
-        console.log("vou enviar o dado")
         sendToKafkaUserSetupInformation(data)
       }
+
+      // if(newData["messages"] == "filter") {
+      //   // aqui estamos ja com a mensagem enviada do usuario
+      //   sendToKafkaUserVisualization(data)
+      // }
   });
 
   // handling what to do when clients disconnects from server
@@ -296,6 +299,35 @@ async function handlerKafka (ws) {
     },
 })
  }
+
+  //producer data para a visualizacao
+  async function sendToKafkaUserVisualization(filterInfoWordCloud) {
+    console.log(filterInfoWordCloud)
+    const prodConfig = {
+      groupId: 'my-app',
+      brokers: ['192.168.0.90:9092'],
+      autoCommit: true,
+      autoCommitInterval: 5000,
+    }
+
+    const message = {
+      value: JSON.stringify(filterInfoWordCloud["filter"]), // Enviando a palavra para o kaka
+    };
+
+  const kafkaprod = new kafka1.Kafka(prodConfig).producer()
+    
+  await kafkaprod.connect()
+  await kafkaprod.send({
+    topic: 'visualization', 
+    messages: [
+      message
+
+    ],
+   })
+
+   await kafkaprod.disconnect();
+
+}
 
  //producer data para o que for setado do setup
   async function sendToKafkaUserSetupInformation(filterInfoWordCloud) {
