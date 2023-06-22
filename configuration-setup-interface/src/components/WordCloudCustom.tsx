@@ -33,10 +33,10 @@ const WordCloudCustom: React.FC<MyComponentWordsProps> = ({
   return (
     <div style={{height: 400, width: 600}}>
       <WordCloud
-        // data={words}
-        data={data}
-        width={500}
-        height={500}
+        data={words}
+        // data={data}
+        width={700}
+        height={700}
         font="Times"
         fontStyle="italic"
         fontWeight="bold"

@@ -93,7 +93,7 @@ await consumer1.run({
    wordcloudArray.length = 0
    wordcloudArray.push(...mergedData)
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":false, data:wordcloudArray}));
+    ws.send(JSON.stringify({"phases":false,"namedEntity":false, data:wordcloudArray}));
   },
 });
 
@@ -149,7 +149,7 @@ const valueArray = namedEntityArray.map(obj => obj.value);
     //   return  [[x], [parseInt(value)]];
     // });
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
+    ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
   },
 });
 
@@ -210,7 +210,38 @@ await consumer3.run({
     //   return  [[x], [parseInt(value)]];
     // });
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":true,"isDate":true, data:totTweetsArray}));
+    ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":true, data:totTweetsArray}));
+  },
+});
+
+// First consumer
+const consumer4 = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer4' });
+await consumer4.connect();
+await consumer4.subscribe({ topic: 'teste2312' });
+await consumer4.run({
+  eachBatchAutoResolve: true,
+  eachBatch: async ({
+      batch,
+      resolveOffset,
+      heartbeat,
+      commitOffsetsIfNecessary,
+      uncommittedOffsets,
+      isRunning,
+      isStale,
+      pause,
+  }) => {
+    const pphases = []
+    for (var i = 0; i < batch.messages.length; i++) {
+      // Remove the parentheses and split the string by the comma
+      const [text, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+      
+      // Create a new object with the extracted values
+      //array com o primeiro elemento sendo o array de names e o segundo inteiros
+      pphases.push(text)
+            // more statements
+   }
+    //format object to json 
+    ws.send(JSON.stringify({"phases":true,"namedEntity":false, data:pphases}));
   },
 });
   //handlerKafkaNamed(ws)
@@ -225,10 +256,11 @@ await consumer3.run({
         sendToKafkaUserSetupInformation(data)
       }
 
-      // if(newData["messages"] == "filter") {
-      //   // aqui estamos ja com a mensagem enviada do usuario
-      //   sendToKafkaUserVisualization(data)
-      // }
+      if(newData["messages"] == "filter") {
+        // aqui estamos ja com a mensagem enviada do usuario
+        console.log("chegamos no date de filtrar")
+        sendToKafkaUserVisualization(newData["filter"])
+      }
   });
 
   // handling what to do when clients disconnects from server
@@ -311,7 +343,7 @@ async function handlerKafka (ws) {
     }
 
     const message = {
-      value: JSON.stringify(filterInfoWordCloud["filter"]), // Enviando a palavra para o kaka
+      value: filterInfoWordCloud, // Enviando a palavra para o kaka
     };
 
   const kafkaprod = new kafka1.Kafka(prodConfig).producer()

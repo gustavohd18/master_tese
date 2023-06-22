@@ -42,19 +42,33 @@ function App() {
   const [dataBar, setDataBar] = useState<DataBarContent>(emptydataBar);
   const [dateBar, setDateBar] = useState<DateContent>(emptydateBar);
   const [valueFilter, setValueFilter] = useState<string>("");
+  const [phases, setValuePhases] = useState([""]);
   var previousValue = "";
   const [wordCloud, setWordCloud] = useState<WordsCloud[]>([]);
+  const [dataSource, setDataSource] = useState("");
+  const [token, setToken] = useState("");
+  const [tag, setTag] = useState("");
+  const [wordEntitedName, setwordEntitedName] = useState("");
 
   function setValues(text: string) {
     setValueFilter(text);
     if (socket != null) {
-      const obj = {messages: "filter", filter: text};
-      const jsonString = JSON.stringify(obj);
-      socket.send(jsonString);
+      const data = {
+        command: "update",
+        filter: text,
+        token: token,
+        isEntitedNamed: wordEntitedName != null,
+        entitedNamed: wordEntitedName.split(";"),
+        tag: tag.split(";"),
+      };
+      if (socket != null) {
+        socket.send(JSON.stringify(data));
+      }
+      //  gdfg;
+      // const obj = {messages: "filter", filter: text};
+      // const jsonString = JSON.stringify(obj);
+      //  socket.send(jsonString);
     }
-    console.log("TExto setado");
-
-    console.log(valueFilter);
   }
 
   useEffect(() => {
@@ -70,52 +84,55 @@ function App() {
       const dataJson = JSON.parse(event.data);
       const dataFromEvent = dataJson["data"];
 
-      if (dataJson["namedEntity"] == true) {
-        // console.log(dataJson);
-
-        if (dataJson["isDate"] == true) {
-          // console.log(event.data);
-          console.log("Era pra printa");
-          console.log(dataFromEvent);
-          //console.log(dataFromEvent[0].length);
-          //console.log(dataFromEvent[1].length);
-          const dataBarContentFormat: DateContent = {
-            value: dataFromEvent,
-          };
-          setDateBar(dataBarContentFormat);
-        } else {
-          //mandamos para o grafico de barras esse valor
-          const dataBarContentFormat: DataBarContent = {
-            lineX: dataFromEvent[0],
-            lineY: dataFromEvent[1],
-          };
-          setDataBar(dataBarContentFormat);
-        }
+      if (dataJson["phases"] == true) {
+        setValuePhases(dataFromEvent);
       } else {
-        // console.log(dataJson);
+        if (dataJson["namedEntity"] == true) {
+          // console.log(dataJson);
 
-        if (dataJson["isDate"] == true) {
-          const dataBarContentFormat: DateContent = {
-            value: dataFromEvent,
-          };
-          setDateBar(dataBarContentFormat);
-        } else {
-          previousValue;
-          if (valueFilter != "") {
-            //aqui vamos mandar a mensagem para manipular os dados no lado do server/kafka
-            // caso seja em branco coloca toda a wordcloud
-            // caso nao seja branco realiza o filtro
-            const array = shuffleArray(dataFromEvent);
-            // Select the first 100 elements
-            const selectedElements = array.slice(0, 25);
-            setWordCloud(selectedElements);
+          if (dataJson["isDate"] == true) {
+            // console.log(event.data);
+            //console.log(dataFromEvent);
+            //console.log(dataFromEvent[0].length);
+            //console.log(dataFromEvent[1].length);
+            const dataBarContentFormat: DateContent = {
+              value: dataFromEvent,
+            };
+            setDateBar(dataBarContentFormat);
           } else {
-            // caso seja em branco coloca toda a wordcloud
-            const wordContentFormat = dataFromEvent;
-            setWordCloud(wordContentFormat);
+            //mandamos para o grafico de barras esse valor
+            const dataBarContentFormat: DataBarContent = {
+              lineX: dataFromEvent[0],
+              lineY: dataFromEvent[1],
+            };
+            setDataBar(dataBarContentFormat);
           }
+        } else {
+          // console.log(dataJson);
 
-          //mapeamos aqui tanto para o de linhas quanto de wordcloud
+          if (dataJson["isDate"] == true) {
+            const dataBarContentFormat: DateContent = {
+              value: dataFromEvent,
+            };
+            setDateBar(dataBarContentFormat);
+          } else {
+            previousValue;
+            if (valueFilter != "") {
+              //aqui vamos mandar a mensagem para manipular os dados no lado do server/kafka
+              // caso seja em branco coloca toda a wordcloud
+              // caso nao seja branco realiza o filtro
+              const array = shuffleArray(dataFromEvent);
+              // Select the first 100 elements
+              const selectedElements = array.slice(0, 25);
+              setWordCloud(selectedElements);
+            } else {
+              // caso seja em branco coloca toda a wordcloud
+              const wordContentFormat = dataFromEvent;
+              setWordCloud(wordContentFormat);
+            }
+
+            //mapeamos aqui tanto para o de linhas quanto de wordcloud
+          }
         }
       }
     });
@@ -152,7 +169,19 @@ function App() {
           Visualization
         </button>
       </div>
-      {activeTab === "page1" && <ConfigurationPage socket={socket} />}
+      {activeTab === "page1" && (
+        <ConfigurationPage
+          socket={socket}
+          setDataSource={setDataSource}
+          dataSource={dataSource}
+          tag={tag}
+          setTag={setTag}
+          token={token}
+          setToken={setToken}
+          wordEntitedName={wordEntitedName}
+          setwordEntitedName={setwordEntitedName}
+        />
+      )}
       {activeTab === "page2" && (
         <VisualizationPage
           dataBar={dataBar}
@@ -160,6 +189,7 @@ function App() {
           dateBar={dateBar}
           functionDis={setValues}
           textWord={valueFilter}
+          phases={phases}
         />
       )}
     </div>

@@ -8,25 +8,41 @@ import ButtonCustom from "../components/Button";
 
 interface MyComponentProps {
   socket: WebSocket | null;
+  setwordEntitedName: React.Dispatch<React.SetStateAction<string>>;
+  wordEntitedName: string;
+  setTag: React.Dispatch<React.SetStateAction<string>>;
+  tag: string;
+  setToken: React.Dispatch<React.SetStateAction<string>>;
+  token: string;
+  setDataSource: React.Dispatch<React.SetStateAction<string>>;
+  dataSource: string;
 }
 
-const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
+const ConfigurationPage: React.FC<MyComponentProps> = ({
+  socket,
+  setwordEntitedName,
+  wordEntitedName,
+  setTag,
+  tag,
+  setToken,
+  token,
+  setDataSource,
+  dataSource,
+}) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
   };
 
-  const [dataSource, setDataSource] = useState("");
-  const [token, setToken] = useState("");
-  const [tag, setTag] = useState("");
-
   const handleDataSourceSelect = (
     dataSource: string,
     barenToken: string,
-    tag: string
+    tag: string,
+    wordEntitedName: string
   ) => {
     setDataSource(dataSource);
     setToken(barenToken);
     setTag(tag);
+    setwordEntitedName(wordEntitedName);
   };
   return (
     <div>
@@ -37,6 +53,7 @@ const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
           <div>Selected data source: {dataSource}</div>
           <div>Entered token: {token}</div>
           <div>Entered tag: {tag}</div>
+          <div>Entered words to filter: {wordEntitedName}</div>
         </div>
       </div>
       <div className="container">
@@ -56,8 +73,11 @@ const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
             const data = {
               command: "setup",
               token: token,
+              isEntitedNamed: wordEntitedName != null,
+              entitedNamed: wordEntitedName.split(";"),
               tag: tag.split(";"),
             };
+
             if (socket != null) {
               socket.send(JSON.stringify(data));
             }
@@ -70,7 +90,10 @@ const ConfigurationPage: React.FC<MyComponentProps> = ({socket}) => {
             const data = {
               command: "update",
               token: token,
+              isEntitedNamed: wordEntitedName != null,
+              entitedNamed: wordEntitedName.split(";"),
               tag: tag.split(";"),
+              filter: "",
             };
             if (socket != null) {
               socket.send(JSON.stringify(data));

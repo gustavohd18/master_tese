@@ -4,6 +4,7 @@ import React, {useState, useEffect, useRef} from "react";
 import ReactECharts from "echarts-for-react";
 import WordCloudCustom, {WordsCloud} from "../components/WordCloudCustom";
 import {DataBarContent, DateContent} from "../App";
+import PhaseBox from "../components/phaseBox";
 
 interface MyComponentProps {
   dataBar: DataBarContent;
@@ -11,6 +12,7 @@ interface MyComponentProps {
   word: WordsCloud[];
   functionDis: (param: string) => void;
   textWord: string;
+  phases: string[];
 }
 
 const WordCloudCustom2 = () => {
@@ -211,6 +213,7 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
   dateBar,
   functionDis,
   textWord,
+  phases,
 }) => {
   const handleVisualizationToggle = (options: string[]) => {
     console.log(`User selected ${options}`);
@@ -234,32 +237,46 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
       <div>
         <div style={{display: "flex", flexDirection: "column"}}></div>
         <div>
+          <p style={{marginTop: "8px", fontWeight: "bold"}}>
+            Total Tweets Per Second
+          </p>
           <Line
             dataBar={dataBar}
             word={[]}
             dateBar={dateBar}
             functionDis={() => {}}
             textWord={""}
+            phases={[]}
           ></Line>
-          <p style={{marginTop: "10px", marginLeft: "500px"}}>Date</p>
         </div>
         <div>
+          <p style={{marginTop: "8px", fontWeight: "bold"}}>
+            Total Tweets Cumulative by Name
+          </p>
           <Bar
             dataBar={dataBar}
             word={[]}
             dateBar={dateBar}
             functionDis={functionDis}
             textWord={textWord}
+            phases={[]}
           ></Bar>
-          <p style={{marginTop: "8px", marginLeft: "500px"}}>Names found</p>
         </div>
-        <div style={{display: "flex", flexDirection: "column"}}>
-          {textWord.length > 0 ? (
-            <p>Word Cloud filter by {textWord}</p>
-          ) : (
-            <p>All words</p>
-          )}
-          <WordCloudCustom words={word} functionDis={functionDis} />
+        <div style={{display: "flex", flexDirection: "row"}}>
+          <div style={{display: "flex", flexDirection: "column"}}>
+            {textWord.length > 0 ? (
+              <p style={{marginTop: "8px", fontWeight: "bold"}}>
+                {" "}
+                Word cloud of {textWord}
+              </p>
+            ) : (
+              <p style={{marginTop: "8px", fontWeight: "bold"}}>
+                Word cloud of all tweets
+              </p>
+            )}
+            <WordCloudCustom words={word} functionDis={functionDis} />
+          </div>
+          <PhaseBox phases={phases}></PhaseBox>
         </div>
       </div>
     </div>

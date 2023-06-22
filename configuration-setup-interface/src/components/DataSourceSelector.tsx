@@ -2,13 +2,19 @@ import React, {useState} from "react";
 import {Button} from "react-bootstrap";
 
 interface DataSourceSelectorProps {
-  onSelect: (dataSource: string, token: string, tag: string) => void;
+  onSelect: (
+    dataSource: string,
+    token: string,
+    tag: string,
+    setwordEntitedName: string
+  ) => void;
 }
 
 function DataSourceSelector(props: DataSourceSelectorProps) {
   const [dataSource, setDataSource] = useState("twitter");
   const [token, setToken] = useState("");
   const [tag, setTag] = useState("");
+  const [wordEntitedName, setwordEntitedName] = useState("");
 
   const handleDataSourceChange = (
     event: React.ChangeEvent<HTMLSelectElement>
@@ -24,9 +30,15 @@ function DataSourceSelector(props: DataSourceSelectorProps) {
     setTag(event.target.value);
   };
 
+  const handleWordEntitedName = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setwordEntitedName(event.target.value);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.onSelect(dataSource, token, tag);
+    props.onSelect(dataSource, token, tag, wordEntitedName);
   };
 
   return (
@@ -47,6 +59,14 @@ function DataSourceSelector(props: DataSourceSelectorProps) {
         <label style={{marginTop: "8px"}}>Tags:</label>
         <br />
         <input type="text" value={tag} onChange={handleTagChange} />
+        <br />
+        <label style={{marginTop: "8px"}}>Words to count:</label>
+        <br />
+        <input
+          type="text"
+          value={wordEntitedName}
+          onChange={handleWordEntitedName}
+        />
         <br />
         <Button style={{marginTop: "8px"}} variant="primary" type="submit">
           save
