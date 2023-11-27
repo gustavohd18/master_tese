@@ -128,7 +128,7 @@ await consumer2.run({
     namedEntityArray.push(...mergedData)
 
    const textArray = namedEntityArray.map(obj => obj.text);
-const valueArray = namedEntityArray.map(obj => obj.value);
+   const valueArray = namedEntityArray.map(obj => obj.value);
   //   for (var i = 0; i < batch.messages.length; i++) {
   //     // Remove the parentheses and split the string by the comma
   //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');

@@ -169,47 +169,47 @@ function isEnglish(text) {
   });
 }
 
-  const kafka = new Kafka({
-    clientId: 'my-app',
-    brokers: ['192.168.0.90:9092'],
-  })
+  // const kafka = new Kafka({
+  //   clientId: 'my-app',
+  //   brokers: ['192.168.0.90:9092'],
+  // })
   
-    const consumer = kafka.consumer({ groupId: 'my-app' })
-  //este consumir vem de outro computador com o topico teste2 criados
-  await consumer.connect()
-  await consumer.subscribe({ topic: 'setup_from_user', fromBeginning: true })
+  //   const consumer = kafka.consumer({ groupId: 'my-app' })
+  // //este consumir vem de outro computador com o topico teste2 criados
+  // await consumer.connect()
+  // await consumer.subscribe({ topic: 'setup_from_user', fromBeginning: true })
 // tudo passa por este consumer no caso quando clicar na word cloud envia para ca para filtrar e o contrario tbm. onus que quando o usuario voltar vai perder o que tinha talvez o server ta salvando entao podemos evitar esse erro
-await consumer.run({
-  eachMessage: async ({ topic, partition, message }) => {
-//     // aqui estamos com os dados que vem da interface visual do setup e setamos o twitter a partir dai
-    console.log({
-      value: message.value.toString(),
-    })
+// await consumer.run({
+//   eachMessage: async ({ topic, partition, message }) => {
+// //     // aqui estamos com os dados que vem da interface visual do setup e setamos o twitter a partir dai
+//     console.log({
+//       value: message.value.toString(),
+//     })
 
-//     const data2 =  message.value.toString().replace(/\\|'/g, '').replace(/"/g, "'")
+// //     const data2 =  message.value.toString().replace(/\\|'/g, '').replace(/"/g, "'")
 
-//   var finalTags = []
+// //   var finalTags = []
 
-const parsedString = JSON.parse(JSON.parse( message.value.toString()));
-const convertedString = JSON.stringify(parsedString);
-const jsonObject = JSON.parse(convertedString)
- const commandValue = jsonObject.command;
-const tokenValue = jsonObject.token;
- const tagValue = jsonObject.tag;
-const filterWord = jsonObject.filter;
-const isEntitedNamed = jsonObject.isEntitedNamed;
-const entitedNamed = jsonObject.entitedNamed;
+// const parsedString = JSON.parse(JSON.parse( message.value.toString()));
+// const convertedString = JSON.stringify(parsedString);
+// const jsonObject = JSON.parse(convertedString)
+//  const commandValue = jsonObject.command;
+// const tokenValue = jsonObject.token;
+//  const tagValue = jsonObject.tag;
+// const filterWord = jsonObject.filter;
+// const isEntitedNamed = jsonObject.isEntitedNamed;
+// const entitedNamed = jsonObject.entitedNamed;
 
- console.log(commandValue); // setup
- console.log(tokenValue); // eetet
- console.log(filterWord); // ['vini', 'flaflu', 'gremio', 'it', 'fdfs']
+//  console.log(commandValue); // setup
+//  console.log(tokenValue); // eetet
+//  console.log(filterWord); // ['vini', 'flaflu', 'gremio', 'it', 'fdfs']
 
- console.log(tagValue); // ['vini', 'flaflu', 'gremio', 'it', 'fdfs']
+//  console.log(tagValue); // ['vini', 'flaflu', 'gremio', 'it', 'fdfs']
 
-      finalTags = tagValue.map((item) => ({
-        value: item,
-        tag: item,
-      }))
+//       finalTags = tagValue.map((item) => ({
+//         value: item,
+//         tag: item,
+//       }))
 
 // //       // function myFunction() {
 // //       //   var randomNumber = Math.floor(Math.random() * 4) + 1;
@@ -239,21 +239,21 @@ const entitedNamed = jsonObject.entitedNamed;
 // // //     console.log(finalTags)
 // //     token AAAAAAAAAAAAAAAAAAAAADoxjwEAAAAAoPOxG2TMiNRWmFRTbQT8Wly4ypU%3DZtZYJyHvbc2A5mBECipTtCldeapOvV3C81eUwMHDB7YorIKWs8
 
-    const client = new Client("AAAAAAAAAAAAAAAAAAAAALV9TAEAAAAAP3ewlXY3kiK%2BRPCwSoM2PdAmsSE%3De95FIYI6naAMw52KQakqu0UbzUSSjM9CzDN6PGfHvoEddXibaa");
+    const client = new Client("AAAAAAAAAAAAAAAAAAAAAI1moAEAAAAAAtWX7v6a0MwhCiuAn4izUXQyO%2B0%3DuCpLJJCT6GYrwhq7lB2POml28YsP0rMjbe4KS5HP6vwL0Sh9e6");
 
     const rules = await client.tweets.getRules();
 
-    const mappedObject = {
-      ids: rules.data.map(item => item.id),
-      value: rules.data.map(item => item.value)
-    };
+    // const mappedObject = {
+    //   ids: rules.data.map(item => item.id),
+    //   value: rules.data.map(item => item.value)
+    // };
 
-    await client.tweets.addOrDeleteRules(
-      {
-        delete: mappedObject
+    // await client.tweets.addOrDeleteRules(
+    //   {
+    //     delete: mappedObject
 
-      }
-    );
+    //   }
+    // );
     // Create a rules to get from twitter
     await client.tweets.addOrDeleteRules(
       {
@@ -261,13 +261,13 @@ const entitedNamed = jsonObject.entitedNamed;
          // finalTags
          [ 
           //{ value: "vinijunior", tag: "vinijunior" },
-          { value: "halland", tag: "halland" },
+          // { value: "halland", tag: "halland" },
          // { value: "realmadrid", tag: "soccer" },
-          { value: "manchestercity", tag: "manchestercity" },
+          // { value: "manchestercity", tag: "manchestercity" },
           //{ value: "championsleague", tag: "premierleague" },
           { value: "championsleague", tag: "championsleague" },
-          { value: "inter", tag: "inter" },
-          { value: "lukaku", tag: "lukaku" },
+          // { value: "inter", tag: "inter" },
+          // { value: "lukaku", tag: "lukaku" },
 
          ]
       }
@@ -281,29 +281,29 @@ const entitedNamed = jsonObject.entitedNamed;
  
     for await (const tweet of stream) {
       const tweetText = tweet.data.text;
-     // const csvRow = `"${tweetText}"\n`;
-      //fs.appendFileSync(filename, csvRow);
+      const csvRow = `"${tweetText}"\n`;
+      fs.appendFileSync(filename, csvRow);
       //get any twitter need send to receive module
-      const tweetLanguage = tweet.data.lang;
+    //   const tweetLanguage = tweet.data.lang;
 
-     // console.log(`Text: ${tweetText}`);
-      const isTextEnglish = isEnglish(tweetText);
-      //console.log(`Is English: ${isTextEnglish}`); 
-      if(isTextEnglish) {
-        if(tweet.data.text.includes("https") || tweet.data.text.includes("http") ) {
+    //  // console.log(`Text: ${tweetText}`);
+    //   const isTextEnglish = isEnglish(tweetText);
+    //   //console.log(`Is English: ${isTextEnglish}`); 
+    //   if(isTextEnglish) {
+    //     if(tweet.data.text.includes("https") || tweet.data.text.includes("http") ) {
 
-        } else {
-          const data = {
-            filter: filterWord,
-            isEntitedNamed: isEntitedNamed,
-            entitedNamed: entitedNamed,
-            text: tweet.data.text,
-          };
-          setTimeout(() =>sendStream(data),20000)
-        }
-      }
+    //     } else {
+    //       const data = {
+    //         filter: filterWord,
+    //         isEntitedNamed: isEntitedNamed,
+    //         entitedNamed: entitedNamed,
+    //         text: tweet.data.text,
+    //       };
+    //       setTimeout(() =>sendStream(data),20000)
+    //     }
+    //   }
     }
-   },
-})
+  //  },
+// })
 
 
