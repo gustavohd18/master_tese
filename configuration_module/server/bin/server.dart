@@ -26,8 +26,11 @@ void main() async {
       var session =  KafkaSession([host]);
 
       var producer =  Producer(session, 1, 1000);
-      var result = await producer.produce([
-         ProduceEnvelope('begin_process', 0, [ Message(jsonEncode(myData.toJson()).codeUnits, key: 'body'.codeUnits)])
+    var resultDataSource = await producer.produce([
+         ProduceEnvelope('beginPro', 0, [ Message(jsonEncode(myData.toJson()).codeUnits, key: 'body'.codeUnits)])
+      ]);
+      var resultFlink = await producer.produce([
+         ProduceEnvelope('begin', 0, [ Message(jsonEncode(myData.toJson()).codeUnits, key: 'body'.codeUnits)])
       ]);
 
        session.close();
@@ -38,7 +41,7 @@ void main() async {
     );
   });
  final overrideHeaders = {
-    ACCESS_CONTROL_ALLOW_ORIGIN: 'http://localhost:64426',
+    ACCESS_CONTROL_ALLOW_ORIGIN: 'http://localhost:55383',
     'Content-Type': 'application/json;charset=utf-8'
   };
   // Create a shelf handler

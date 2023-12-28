@@ -83,7 +83,7 @@ DateTime parseDate(String dateString) {
     }
 
     // aqui pode enviar este dado para algum endpoint de dados no datasource vamos tratar o caso
-                    String finalDataSourceType = selectedOption;
+                String finalDataSourceType = selectedOption;
                 String finalDataTypeFile = selectedOptionFile;
                 String? finalSmartWatchOptions = selectedOptionSmartWatch;
                 bool isBarChart = _barChartSelected;

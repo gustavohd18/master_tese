@@ -1,12 +1,7 @@
-import tabpy
-import plotly.express as px
-import pandas as pd
-import tabpy_client
+from pyflink.datastream import StreamExecutionEnvironment
+from pyflink.table import StreamTableEnvironment
 
-def scatter_plot(data):
-   fig = px.scatter(data, x='x', y='y')
-   return fig.to_dict()
+env = StreamExecutionEnvironment.get_execution_environment()
+t_env = StreamTableEnvironment.create(env)
 
-client = tabpy_client.Client('http://localhost:9004')
-
-client.deploy('scatter_plot', scatter_plot, 'Creates a scatter plot using Plotly Express')
+t_env.from_elements([(1, 'Hello'), (2, 'World')], ['id', 'message']).print_schema()

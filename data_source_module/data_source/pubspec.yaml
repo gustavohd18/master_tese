@@ -13,6 +13,7 @@ dependencies:
   kafkabr:
     git: https://github.com/armando-couto/kafkabr.git
   twitter_api_v2: ^4.9.4
+  
   # path: ^1.8.0
 
 dev_dependencies:
