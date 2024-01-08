@@ -179,7 +179,7 @@ const Bar: React.FC<MyComponentProps> = ({dataBar, functionDis, textWord}) => {
     };
   }, []);
 
-  const dataex = { lineX : ['Elden', 'horizon', 'BillClinton', 'eldenring','godofwar', 'Bill','FROMSOFTWARE', "Bayonetta", 'AplateTales', 'Konami'], lineY: [600,1000, 840, 400,600, 300, 200, 70, 400, 200]}
+  const dataex = { lineX : dataBar.lineX, lineY: dataBar.lineY}
 
 
   const options = {

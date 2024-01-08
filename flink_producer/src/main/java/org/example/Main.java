@@ -113,83 +113,83 @@ public class Main {
                         System.out.println(yourObject.isLineChartSelected);
 
 ////
-//                        if (yourObject.isCountWordSelected) {
-//                            System.out.println("Chegamos no isCount");
-//                            // Create Kafka producer from Flink API
-//                            Properties prodProps = new Properties();
-//                            prodProps.put("bootstrap.servers", BOOTSTRAP_SERVER);
-//
-//                            FlinkKafkaProducer<Tuple2<String, Integer>> kafkaProducerTextVisualization =
-//                                    new FlinkKafkaProducer<>("sendWordCountProcessedVisualization",
-//                                            ((value, timestamp) -> new ProducerRecord<byte[], byte[]>("sendWordCountProcessedVisualization", "myKey".getBytes(), value.toString().getBytes())),
-//                                            prodProps,
-//                                            FlinkKafkaProducer.Semantic.EXACTLY_ONCE);
-//
-//                            FlinkKafkaProducer<Tuple2<String, Integer>> kafkaProducerText =
-//                                    new FlinkKafkaProducer<>("sendWordCountProcessed",
-//                                            ((value, timestamp) -> new ProducerRecord<byte[], byte[]>("sendWordCountProcessed", "myKey".getBytes(), value.toString().getBytes())),
-//                                            prodProps,
-//                                            FlinkKafkaProducer.Semantic.EXACTLY_ONCE);
-//                            DataStream<Tuple2<String, Integer>> wordCounts = stream.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
-//                                        public void flatMap(String value, Collector<Tuple2<String, Integer>> out) {
-//                                            for (String word : value.toLowerCase().split("\\s")) {
-//                                                for (String stopWord : stopWords) {
-//                                                    if (word.equals(stopWord)) {
-//                                                        word = word.replaceAll(stopWord, "");
-//                                                    }
-//                                                }
-//                                                out.collect(new Tuple2<String, Integer>(word, 1));
-//                                            }
-//                                        }
-//                                    })
-//                                    .keyBy(0)
-//                                    .timeWindow(Time.seconds(5))
-//                                    .sum(1);
-//
-//                            // Add the word count to each new window in the same list
-//                            DataStream<Tuple2<String, Integer>> updatedWordCounts = wordCounts
-//                                    .keyBy(0)
-//                                    .reduce((value1, value2) -> new Tuple2<>(value1.f0, value1.f1 + value2.f1));
-//
-//                            // Persist each count of word for each window
-//                            updatedWordCounts.print();
-//                        updatedWordCounts.addSink(kafkaProducerTextVisualization);
-//                        updatedWordCounts.addSink(kafkaProducerText);
-//
-//
-//                            if (yourObject.isBarChartSelected == false && yourObject.isLineChartSelected == false) {
-//                                env.execute();
-//                            }
-//                        } else if (yourObject.isLineChartSelected) {
-//                            System.out.println("Chegamos no line");
-//                            // Create Kafka producer from Flink API
-//                            Properties prodProps = new Properties();
-//                            prodProps.put("bootstrap.servers", BOOTSTRAP_SERVER);
-//
-//                            FlinkKafkaProducer<Tuple2<String, Integer>> kafkaProducerTotal =
-//                                    new FlinkKafkaProducer<>("sendTotalItemsProcessed",
-//                                            ((value, timestamp) -> new ProducerRecord<byte[], byte[]>("sendTotalItemsProcessed", "myKey".getBytes(), value.toString().getBytes())),
-//                                            prodProps,
-//                                            FlinkKafkaProducer.Semantic.EXACTLY_ONCE);
-////                            // Count of data items in each time window
-//                            // Tokenize the text and count occurrences
-//                            DataStream<Tuple2<String, Integer>> wordCounts1 = stream
-//                                    .map(new MessageCountMapper())
-//
-//                                    .keyBy(0)  // Keying by the first field of the tuple (word)
-//                                    .sum(1);    // Summing the second field of the tuple (count)
-//
-//                            // Print the result to stdout
-//                            wordCounts1.print();
-//                            wordCounts1.addSink(kafkaProducerTotal);
-//
-////                            // Sink data item count to Kafka
-//
-//                            if (yourObject.isBarChartSelected == false && yourObject.isCountWordSelected == false || yourObject.isBarChartSelected == false && yourObject.isCountWordSelected == true) {
-//                                env.execute();
-//                            }
-//
-//                        } else if (yourObject.isBarChartSelected) {
+                        if (yourObject.isCountWordSelected) {
+                            System.out.println("Chegamos no isCount");
+                            // Create Kafka producer from Flink API
+                            Properties prodProps = new Properties();
+                            prodProps.put("bootstrap.servers", BOOTSTRAP_SERVER);
+
+                            FlinkKafkaProducer<Tuple2<String, Integer>> kafkaProducerTextVisualization =
+                                    new FlinkKafkaProducer<>("sendWordCountProcessedVisualization",
+                                            ((value, timestamp) -> new ProducerRecord<byte[], byte[]>("sendWordCountProcessedVisualization", "myKey".getBytes(), value.toString().getBytes())),
+                                            prodProps,
+                                            FlinkKafkaProducer.Semantic.EXACTLY_ONCE);
+
+                            FlinkKafkaProducer<Tuple2<String, Integer>> kafkaProducerText =
+                                    new FlinkKafkaProducer<>("sendWordCountProcessed",
+                                            ((value, timestamp) -> new ProducerRecord<byte[], byte[]>("sendWordCountProcessed", "myKey".getBytes(), value.toString().getBytes())),
+                                            prodProps,
+                                            FlinkKafkaProducer.Semantic.EXACTLY_ONCE);
+                            DataStream<Tuple2<String, Integer>> wordCounts = stream.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
+                                        public void flatMap(String value, Collector<Tuple2<String, Integer>> out) {
+                                            for (String word : value.toLowerCase().split("\\s")) {
+                                                for (String stopWord : stopWords) {
+                                                    if (word.equals(stopWord)) {
+                                                        word = word.replaceAll(stopWord, "");
+                                                    }
+                                                }
+                                                out.collect(new Tuple2<String, Integer>(word, 1));
+                                            }
+                                        }
+                                    })
+                                    .keyBy(0)
+                                    .timeWindow(Time.seconds(5))
+                                    .sum(1);
+
+                            // Add the word count to each new window in the same list
+                            DataStream<Tuple2<String, Integer>> updatedWordCounts = wordCounts
+                                    .keyBy(0)
+                                    .reduce((value1, value2) -> new Tuple2<>(value1.f0, value1.f1 + value2.f1));
+
+                            // Persist each count of word for each window
+                            updatedWordCounts.print();
+                        updatedWordCounts.addSink(kafkaProducerTextVisualization);
+                        updatedWordCounts.addSink(kafkaProducerText);
+
+
+                            if (yourObject.isBarChartSelected == false && yourObject.isLineChartSelected == false) {
+                                env.execute();
+                            }
+                        } else if (yourObject.isLineChartSelected) {
+                            System.out.println("Chegamos no line");
+                            // Create Kafka producer from Flink API
+                            Properties prodProps = new Properties();
+                            prodProps.put("bootstrap.servers", BOOTSTRAP_SERVER);
+
+                            FlinkKafkaProducer<Tuple2<String, Integer>> kafkaProducerTotal =
+                                    new FlinkKafkaProducer<>("sendTotalItemsProcessed",
+                                            ((value, timestamp) -> new ProducerRecord<byte[], byte[]>("sendTotalItemsProcessed", "myKey".getBytes(), value.toString().getBytes())),
+                                            prodProps,
+                                            FlinkKafkaProducer.Semantic.EXACTLY_ONCE);
+//                            // Count of data items in each time window
+                            // Tokenize the text and count occurrences
+                            DataStream<Tuple2<String, Integer>> wordCounts1 = stream
+                                    .map(new MessageCountMapper())
+
+                                    .keyBy(0)  // Keying by the first field of the tuple (word)
+                                    .sum(1);    // Summing the second field of the tuple (count)
+
+                            // Print the result to stdout
+                            wordCounts1.print();
+                            wordCounts1.addSink(kafkaProducerTotal);
+
+//                            // Sink data item count to Kafka
+
+                            if (yourObject.isBarChartSelected == false && yourObject.isCountWordSelected == false || yourObject.isBarChartSelected == false && yourObject.isCountWordSelected == true) {
+                                env.execute();
+                            }
+
+                        } else if (yourObject.isBarChartSelected) {
                             System.out.println("cheguei no is bar");
                             // Create Kafka producer from Flink API
                             Properties prodProps = new Properties();
@@ -221,13 +221,13 @@ public class Main {
                             updatedNamedEntityWordCounts.addSink(kafkaProducerNamed);
                         updatedNamedEntityWordCounts.addSink(kafkaProducerNamedVisualization);
 
-                        env.execute();
-//                            if (yourObject.isCountWordSelected == false && yourObject.isLineChartSelected == false || yourObject.isLineChartSelected == false && yourObject.isCountWordSelected == true | yourObject.isLineChartSelected == true && yourObject.isCountWordSelected == false || yourObject.isLineChartSelected == true && yourObject.isCountWordSelected == true) {
-//                                env.execute();
-//                            }
+                      //  env.execute();
+                            if (yourObject.isCountWordSelected == false && yourObject.isLineChartSelected == false || yourObject.isLineChartSelected == false && yourObject.isCountWordSelected == true | yourObject.isLineChartSelected == true && yourObject.isCountWordSelected == false || yourObject.isLineChartSelected == true && yourObject.isCountWordSelected == true) {
+                                env.execute();
+                            }
 
                         }
-                  //  }
+                    }
                     } catch (JsonMappingException e) {
                     throw new RuntimeException(e);
                 } catch (JsonProcessingException e) {

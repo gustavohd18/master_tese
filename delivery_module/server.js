@@ -100,60 +100,64 @@ await consumerWordCloud.run({
 });
 
 // // Second consumer
-// const consumer2 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer2' });
-// await consumer2.connect();
-// await consumer2.subscribe({ topic: 'teste23' });
-// await consumer2.run({
-//   eachBatchAutoResolve: true,
-//   eachBatch: async ({
-//       batch,
-//       resolveOffset,
-//       heartbeat,
-//       commitOffsetsIfNecessary,
-//       uncommittedOffsets,
-//       isRunning,
-//       isStale,
-//       pause,
-//   }) => {
-//     const array1 = []
-//     const array2 = []
-//     const outputList = batch.messages.map(message => {
-//       // Remove the parentheses and split the string by the comma
-//       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+const consumerNamedEntity =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer2' });
+await consumerNamedEntity.connect();
+await consumerNamedEntity.subscribe({ topic: 'sendNamedEntityProcessedVisualization' });
+await consumerNamedEntity.run({
+  eachBatchAutoResolve: true,
+  eachBatch: async ({
+      batch,
+      resolveOffset,
+      heartbeat,
+      commitOffsetsIfNecessary,
+      uncommittedOffsets,
+      isRunning,
+      isStale,
+      pause,
+  }) => {
+    const array1 = []
+    const array2 = []
+    const outputList = batch.messages.map(message => {
+      // Remove the parentheses and split the string by the comma
+      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
 
-//       // Create a new object with the extracted values
-//       return  {"text":x,"value": parseInt(value)};
-//     }); // validar se esta certo
+      // Create a new object with the extracted values
+      return  {"text":x,"value": parseInt(value)};
+    }); // validar se esta certo
 
-//     const mergedData =mergeData(namedEntityArray, outputList);
-//     namedEntityArray.length = 0
-//     namedEntityArray.push(...mergedData)
+    console.log('Chegamos aqui no bar')
 
-//    const textArray = namedEntityArray.map(obj => obj.text);
-//    const valueArray = namedEntityArray.map(obj => obj.value);
-//   //   for (var i = 0; i < batch.messages.length; i++) {
-//   //     // Remove the parentheses and split the string by the comma
-//   //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+    const mergedData =mergeData(namedEntityArray, outputList);
+    namedEntityArray.length = 0
+    namedEntityArray.push(...mergedData)
+
+    console.log(namedEntityArray)
+
+   const textArray = namedEntityArray.map(obj => obj.text);
+   const valueArray = namedEntityArray.map(obj => obj.value);
+    for (var i = 0; i < batch.messages.length; i++) {
+      // Remove the parentheses and split the string by the comma
+      const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
       
-//   //     // Create a new object with the extracted values
-//   //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
-//   //     array1.push(x)
-//   //     array2.push(parseInt(value))      // more statements
-//   //  }
-//     // const outputList = batch.messages.map(message => {
-//     //   // Remove the parentheses and split the string by the comma
-//     //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+      // Create a new object with the extracted values
+      //array com o primeiro elemento sendo o array de names e o segundo inteiros
+      array1.push(x)
+      array2.push(parseInt(value))      // more statements
+   }
+    // const outputList = batch.messages.map(message => {
+    //   // Remove the parentheses and split the string by the comma
+    //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
       
-//     //   // Create a new object with the extracted values
-//     //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
-//     //   array1.push(x)
-//     //   array2.push(value)
-//     //   return  [[x], [parseInt(value)]];
-//     // });
-//     //format object to json 
-//     ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
-//   },
-// });
+    //   // Create a new object with the extracted values
+    //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
+    //   array1.push(x)
+    //   array2.push(value)
+    //   return  [[x], [parseInt(value)]];
+    // });
+    //format object to json 
+    ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
+  },
+});
 
 // terceiro consumer
 // const consumer3 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer3' });
