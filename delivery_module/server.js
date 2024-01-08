@@ -5,9 +5,44 @@ var server = require('http').Server(app);
 var kafka1 = require('kafkajs');
 // Importing the required modules
 const WebSocketServer = require('ws');
- 
+ //wordcloud
+const wordcloudArray = []
+const namedEntityArray = []
+const totTweetsArray = []
+
+// Function to merge and update data
+function mergeData(existingData, newData) {
+  const mergedData = [...existingData];
+  console.log("Cheguei na funcao para mergiar")
+  console.log(mergedData)
+  newData.forEach(newItem => {
+    const existingItemIndex = mergedData.findIndex(item => item.text === newItem.text);
+
+    if (existingItemIndex !== -1) {
+
+      // If the text already exists in the existing data, update the value
+      if (mergedData[existingItemIndex].value !== newItem.value) {
+        mergedData[existingItemIndex].value = newItem.value;
+
+        // ... You can update other properties if needed
+      }
+    } else {
+      // If the text does not exist in the existing data, add the new item
+      if(newItem.text == "") {
+        console.log("Cheguei aqui em branco")
+
+        //not add
+      } else {
+        mergedData.push(newItem);
+
+      }
+    }
+  });
+
+  return mergedData;
+}
 // Creating a new websocket server
-const wss = new WebSocketServer.Server({ port: 8080 })
+const wss = new WebSocketServer.Server({ port: 8092 })
 
 // const kafka = new kafka1.Kafka({
 //   clientId: 'my-app',
@@ -26,16 +61,16 @@ wss.on("connection", async ws => {
   // Consumer options
 const consumerConfig = {
   groupId: 'my-group',
-  brokers: ['192.168.0.90:9092'],
+  brokers: ['localhost:9094'],
   autoCommit: true,
   autoCommitInterval: 5000,
 };
 
 // First consumer
-const consumer1 = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer1' });
-await consumer1.connect();
-await consumer1.subscribe({ topic: 'teste2' });
-await consumer1.run({
+const consumerWordCloud = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer1' });
+await consumerWordCloud.connect();
+await consumerWordCloud.subscribe({ topic: 'sendWordCountProcessedVisualization' });
+await consumerWordCloud.run({
   eachBatchAutoResolve: true,
   eachBatch: async ({
       batch,
@@ -47,24 +82,28 @@ await consumer1.run({
       isStale,
       pause,
   }) => {
-
+    console.log("chegou aqui")
     const outputList = batch.messages.map(message => {
       // Remove the parentheses and split the string by the comma
       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
-      
+
       // Create a new object with the extracted values
-      return  [x, parseInt(value)];
-    });
-    //format object to json 
-    ws.send(JSON.stringify({"namedEntity":false, data:outputList}));
+      return  {"text":x,"value": parseInt(value)};
+    }); // validar se esta certo
+     const mergedData =mergeData(wordcloudArray, outputList);
+    //  console.log(mergedData)
+     wordcloudArray.length = 0
+     wordcloudArray.push(...mergedData)
+  //   //format object to json 
+      ws.send(JSON.stringify({"phases":false,"namedEntity":false, data:wordcloudArray}));
   },
 });
 
-// Second consumer
-const consumer2 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer2' });
-await consumer2.connect();
-await consumer2.subscribe({ topic: 'teste23' });
-await consumer2.run({
+// // Second consumer
+const consumerNamedEntity =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer2' });
+await consumerNamedEntity.connect();
+await consumerNamedEntity.subscribe({ topic: 'sendNamedEntityProcessedVisualization' });
+await consumerNamedEntity.run({
   eachBatchAutoResolve: true,
   eachBatch: async ({
       batch,
@@ -78,7 +117,24 @@ await consumer2.run({
   }) => {
     const array1 = []
     const array2 = []
+    const outputList = batch.messages.map(message => {
+      // Remove the parentheses and split the string by the comma
+      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
 
+      // Create a new object with the extracted values
+      return  {"text":x,"value": parseInt(value)};
+    }); // validar se esta certo
+
+    console.log('Chegamos aqui no bar')
+
+    const mergedData =mergeData(namedEntityArray, outputList);
+    namedEntityArray.length = 0
+    namedEntityArray.push(...mergedData)
+
+    console.log(namedEntityArray)
+
+   const textArray = namedEntityArray.map(obj => obj.text);
+   const valueArray = namedEntityArray.map(obj => obj.value);
     for (var i = 0; i < batch.messages.length; i++) {
       // Remove the parentheses and split the string by the comma
       const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
@@ -86,7 +142,7 @@ await consumer2.run({
       // Create a new object with the extracted values
       //array com o primeiro elemento sendo o array de names e o segundo inteiros
       array1.push(x)
-      array2.push(value)      // more statements
+      array2.push(parseInt(value))      // more statements
    }
     // const outputList = batch.messages.map(message => {
     //   // Remove the parentheses and split the string by the comma
@@ -99,9 +155,101 @@ await consumer2.run({
     //   return  [[x], [parseInt(value)]];
     // });
     //format object to json 
-    ws.send(JSON.stringify({"namedEntity":true, data:[array1, array2]}));
+    ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
   },
 });
+
+// terceiro consumer
+// const consumer3 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer3' });
+// await consumer3.connect();
+// await consumer3.subscribe({ topic: 'teste231' });
+// await consumer3.run({
+//   eachBatchAutoResolve: true,
+//   eachBatch: async ({
+//       batch,
+//       resolveOffset,
+//       heartbeat,
+//       commitOffsetsIfNecessary,
+//       uncommittedOffsets,
+//       isRunning,
+//       isStale,
+//       pause,
+//   }) => {
+//     const array3 = []
+//     const array4 = []
+//     const outputList = batch.messages.map(message => {
+//       // Remove the parentheses and split the string by the comma
+//       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+//       const dateObject = new Date(x);
+//       // Create a new object with the extracted values
+//       return  [dateObject, parseInt(value)];
+//     }); // validar se esta certo
+
+//     totTweetsArray.push(...outputList)
+//     const uniqueData = [...new Set(totTweetsArray.map(JSON.stringify))].map(JSON.parse);
+//     totTweetsArray.length = 0
+//     totTweetsArray.push(...uniqueData)
+//     totTweetsArray.sort((a, b) => new Date(a[0]) - new Date(b[0]));
+
+
+// //    const dateArray = totTweetsArray.map(obj => obj.date);
+// // const valueArray = totTweetsArray.map(obj => obj.value);
+//   //   for (var i = 0; i < batch.messages.length; i++) {
+//   //     // Remove the parentheses and split the string by the comma
+//   //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+      
+//   //     // Create a new object with the extracted values
+//   //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//   //     const dateObject = new Date(x);
+
+//   //     array3.push(dateObject)
+//   //     array4.push(parseInt(value))      // more statements
+//   //  }
+//     // const outputList = batch.messages.map(message => {
+//     //   // Remove the parentheses and split the string by the comma
+//     //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+      
+//     //   // Create a new object with the extracted values
+//     //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//     //   array1.push(x)
+//     //   array2.push(value)
+//     //   return  [[x], [parseInt(value)]];
+//     // });
+//     //format object to json 
+//     ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":true, data:totTweetsArray}));
+//   },
+// });
+
+// First consumer
+// const consumer4 = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer4' });
+// await consumer4.connect();
+// await consumer4.subscribe({ topic: 'teste2312' });
+// await consumer4.run({
+//   eachBatchAutoResolve: true,
+//   eachBatch: async ({
+//       batch,
+//       resolveOffset,
+//       heartbeat,
+//       commitOffsetsIfNecessary,
+//       uncommittedOffsets,
+//       isRunning,
+//       isStale,
+//       pause,
+//   }) => {
+//     const pphases = []
+//     for (var i = 0; i < batch.messages.length; i++) {
+//       // Remove the parentheses and split the string by the comma
+//       const [text, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+      
+//       // Create a new object with the extracted values
+//       //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//       pphases.push(text)
+//             // more statements
+//    }
+//     //format object to json 
+//     ws.send(JSON.stringify({"phases":true,"namedEntity":false, data:pphases}));
+//   },
+// });
   //handlerKafkaNamed(ws)
 
  // handlerKafka(ws)
@@ -109,6 +257,16 @@ await consumer2.run({
   //on message from client
   ws.on("message", data => {
       console.log(`Client has sent us: ${data}`)
+      const newData = JSON.parse(data)
+      if(newData["command"] == "setup" ||newData["command"] == "update") {
+        sendToKafkaUserSetupInformation(data)
+      }
+
+      if(newData["messages"] == "filter") {
+        // aqui estamos ja com a mensagem enviada do usuario
+        console.log("chegamos no date de filtrar")
+        sendToKafkaUserVisualization(newData["filter"])
+      }
   });
 
   // handling what to do when clients disconnects from server
@@ -179,3 +337,89 @@ async function handlerKafka (ws) {
     },
 })
  }
+
+  //producer data para a visualizacao
+  async function sendToKafkaUserVisualization(filterInfoWordCloud) {
+    console.log(filterInfoWordCloud)
+    const prodConfig = {
+      groupId: 'my-app',
+      brokers: ['192.168.0.90:9092'],
+      autoCommit: true,
+      autoCommitInterval: 5000,
+    }
+
+    const message = {
+      value: filterInfoWordCloud, // Enviando a palavra para o kaka
+    };
+
+  const kafkaprod = new kafka1.Kafka(prodConfig).producer()
+    
+  await kafkaprod.connect()
+  await kafkaprod.send({
+    topic: 'visualization', 
+    messages: [
+      message
+
+    ],
+   })
+
+   await kafkaprod.disconnect();
+
+}
+
+ //producer data para o que for setado do setup
+  async function sendToKafkaUserSetupInformation(filterInfoWordCloud) {
+    console.log(filterInfoWordCloud)
+    const prodConfig = {
+      groupId: 'my-app',
+      brokers: ['192.168.0.90:9092'],
+      autoCommit: true,
+      autoCommitInterval: 5000,
+    }
+
+    const message = {
+      value: JSON.stringify(filterInfoWordCloud), // Provide a valid message payload
+    };
+
+  const kafkaprod = new kafka1.Kafka(prodConfig).producer()
+    
+  await kafkaprod.connect()
+  await kafkaprod.send({
+    topic: 'setup_from_user', 
+    messages: [
+      message
+
+    ],
+   })
+
+   await kafkaprod.disconnect();
+
+}
+//producer data para o que for setado do setup
+ async function sendToKafkaUserVisualizationInformation({filterInfoWordCloud}) {
+
+   console.log(filterInfoWordCloud)
+   const prodConfig = {
+     groupId: 'my-app',
+     brokers: ['192.168.0.90:9092'],
+     autoCommit: true,
+     autoCommitInterval: 5000,
+   }
+
+   const message = {
+     value: JSON.stringify(filterInfoWordCloud), // Provide a valid message payload
+   };
+
+ const kafkaprod = new kafka1.Kafka(prodConfig).producer()
+   
+//  await kafkaprod.connect()
+//  await kafkaprod.send({
+//    topic: 'data_from_user_visualization', 
+//    messages: [
+//      message
+
+//    ],
+//   })
+
+//   await kafkaprod.disconnect();
+}
