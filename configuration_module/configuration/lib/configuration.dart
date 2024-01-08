@@ -98,3 +98,30 @@ Future<void> start(
       //  session.close();
 
 }
+Future<void> sendfiles(
+    Map<String, dynamic>? fileData) async {
+      print('Chegamos aqui');
+      final url = Uri.parse('http://localhost:8080/sent');
+         try {
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode( fileData), // Adjust the request body as needed
+      );
+
+      if (response.statusCode == 200) {
+        // If the server returns a 200 OK response, parse the JSON response
+        final Map<String, dynamic> responseData = jsonDecode(response.body);
+        print(responseData);
+      } else {
+        // If the server did not return a 200 OK response, throw an exception.
+        print('qual erro ${response.statusCode}');
+        throw Exception('Failed to send POST request');
+      }
+    } catch (error) {
+      // Handle any errors that occurred during the HTTP request
+      print('Error: $error');
+      rethrow;
+    }
+  
+}

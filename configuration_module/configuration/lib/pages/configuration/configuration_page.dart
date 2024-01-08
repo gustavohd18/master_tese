@@ -23,7 +23,7 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
   TextEditingController tagsController = TextEditingController();
   TextEditingController videoIdController = TextEditingController();
   TextEditingController wordsToCountController = TextEditingController();
-  int linesPerChunk = 50;
+  int linesPerChunk = 20;
 
   // Track the selected options
   bool _barChartSelected = false;
@@ -52,29 +52,36 @@ DateTime parseDate(String dateString) {
   return DateTime(year, month, day);
 }
 
-    void _processCSV(String content) async {
+    Future<void> _processCSV(String content) async {
+ 
+      print('chegou no process');
     final List<List<dynamic>> rows = const CsvToListConverter().convert(content);
     Map<String, dynamic> resultMap = {};
 
     for (int i = 0; i < rows.length; i += linesPerChunk) {
+      print('chegamos aqui no row');
       final end = (i + linesPerChunk < rows.length) ? i + linesPerChunk : rows.length;
       final chunk = rows.sublist(i, end);
-
       if(selectedOption == 'Smartwatch') {
           for (int i = 1; i < chunk.length; i++) {
             var date = chunk[i][1] as String; // Assuming the date is always at index 1
             var stepCount = chunk[i][2] as int; // Assuming the step count is always at index 2
 
             resultMap.addAll({date: stepCount});
+                        resultMap.forEach((key, value) {print(value);});
+
           }
       } else {
         for (int i = 1; i < chunk.length; i++) {
-            var date = chunk[i][0] as String; // Assuming the date is always at index 1
-            var text = chunk[i][1] as String; // Assuming the step count is always at index 2
+            var text = chunk[i][0] as String; // Assuming the date is always at index 1
+            var date = chunk[i][1] as String; // Assuming the step count is always at index 2
             // aqui teremos que revisar se der erro para parsear data corretamente no arquivo texto
-            DateTime dateTime = parseDate(date);
-
+            // DateTime dateTime = parseDate(date);
+            print("Ola o que chegou aqui");
+            print(text);
+            print(date);
             resultMap.addAll({date: text});
+            // resultMap.forEach((key, value) {print(value);});
           }
       }
       // Process the chunk of rows
@@ -293,6 +300,8 @@ DateTime parseDate(String dateString) {
                           )),
                       ElevatedButton(
                         onPressed: () async {
+                              // // aqui pode enviar este dado para algum endpoint de dados no datasource vamos tratar o caso
+     
                                       final FileUploadInputElement input = FileUploadInputElement()
               ..accept = 'text/csv'; // Specify the accepted file type(s)
 
@@ -305,10 +314,10 @@ DateTime parseDate(String dateString) {
               final file = files[0];
               final reader = FileReader();
 
-              reader.onLoadEnd.listen((event) {
+              reader.onLoadEnd.listen((event) async {
                 if (reader.result != null) {
                   final String content = reader.result.toString();
-                  _processCSV(content);
+                 await  _processCSV(content);
                 }
               });
 

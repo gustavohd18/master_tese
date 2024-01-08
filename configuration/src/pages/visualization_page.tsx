@@ -288,7 +288,7 @@ const VisualizationPage: React.FC<MyComponentProps> = ({
               </p>
             ) : (
               <p style={{marginTop: "8px", fontWeight: "bold"}}>
-                Word cloud of BillClinton
+                Word cloud all
               </p>
             )}
             <WordCloudCustom words={word} functionDis={functionDis} />

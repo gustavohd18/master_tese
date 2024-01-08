@@ -13,109 +13,111 @@ void main(List<String> arguments) async {
   print('Hello Data source: ${data_source.calculate()}!');
   var host = ContactPoint('192.168.0.135', 9094);
   var session =  KafkaSession([host]);
-  var group =  ConsumerGroup(session, 'consumerGroup3Name');
+  var group =  ConsumerGroup(session, 'consumerGroup4Name');
   var topics = {
-    'processingDataTextF':<int>{0} // list of partitions to consume from.
+    'beginPro':<int>{0} // list of partitions to consume from.
   };
+  while(true) {
 
   var consumer =  Consumer(session, group, topics, 100, 1);
-  await for (MessageEnvelope envelope in consumer.consume(limit: 1)) {
+  await for (MessageEnvelope envelope in consumer.consume()) {
     print('o que esta vindo aqui ${envelope}');
     
     // Assuming that messages were produces by Producer from previous example.
     var value =  String.fromCharCodes(envelope.message.value);
-    // Map<String, dynamic> jsonMap = jsonDecode(value);
-    // MyData deserializedData = MyData.fromJson(jsonMap);
+    Map<String, dynamic> jsonMap = jsonDecode(value);
+    MyData deserializedData = MyData.fromJson(jsonMap);
     print('Got message: ${envelope.offset}, ${value}');
     envelope.commit('metadataa'); // Important.
      session.close(); 
     // //fazer configuracao do x
     // if(deserializedData.finalDataSourceType == 'X') {
-    //     final twitter = v2.TwitterApi(
-    //          bearerToken: 'o',//deserializedData.barenToken,
+        final twitter = v2.TwitterApi(
+             bearerToken: 'AAAAAAAAAAAAAAAAAAAAALV9TAEAAAAAP3ewlXY3kiK%2BRPCwSoM2PdAmsSE%3De95FIYI6naAMw52KQakqu0UbzUSSjM9CzDN6PGfHvoEddXibaa',
 
-    //         //! Automatic retry is available when network error or server error
-    //         //! are happened.
-    //         retryConfig: v2.RetryConfig(
-    //           maxAttempts: 5,
-    //           onExecute: (event) => print(
-    //             'Retry after ${event.intervalInSeconds} seconds... '
-    //             '[${event.retryCount} times]',
-    //           ),
-    //         ),
+            //! Automatic retry is available when network error or server error
+            //! are happened.
+            retryConfig: v2.RetryConfig(
+              maxAttempts: 5,
+              onExecute: (event) => print(
+                'Retry after ${event.intervalInSeconds} seconds... '
+                '[${event.retryCount} times]',
+              ),
+            ),
 
-    //         //! The default timeout is 10 seconds.
-    //         timeout: Duration(seconds: 20),
-    //       );
-    //         try {
+            //! The default timeout is 10 seconds.
+            timeout: Duration(seconds: 20),
+          );
+            try {
 
-    //           //! High-performance Volume Stream endpoint is available.
-    //           // final sampleStream = await twitter.tweets.connectSampleStream();
-    //           // await for (final response in sampleStream.stream.handleError(print)) {
-    //           //   print(response);
-    //           // }
-    //          List<FilteringRuleParam> rulesFilter = []; 
-    //         // for (var i = 0; i < deserializedData.tags.length; i++) {
-    //         //    rulesFilter.add( v2.FilteringRuleParam(value: '#${deserializedData.tags[i]}'));
-    //         //   }
+              //! High-performance Volume Stream endpoint is available.
+              // final sampleStream = await twitter.tweets.connectSampleStream();
+              // await for (final response in sampleStream.stream.handleError(print)) {
+              //   print(response);
+              // }
+             List<FilteringRuleParam> rulesFilter = []; 
+            // for (var i = 0; i < deserializedData.tags.length; i++) {
+            //    rulesFilter.add( v2.FilteringRuleParam(value: '#${deserializedData.tags[i]}'));
+            //   }
              
-    //           //! Also high-performance Filtered Stream endpoint is available.
-    //           await twitter.tweets.createFilteringRules(
-    //             rules: rulesFilter,
-    //             // rules: [
+              //! Also high-performance Filtered Stream endpoint is available.
+              await twitter.tweets.createFilteringRules(
+                // rules: rulesFilter,
+                rules: [
 
-    //             //   rulesFilter[1],
-    //             //   // //! You can easily build filtering rule using by "FilteringRule" object.
-    //             //   // v2.FilteringRuleParam(
-    //             //   //   //! => #Tesla has:media
-    //             //   //   value: v2.FilteringRule.of()
-    //             //   //       .matchHashtag('Tesla')
-    //             //   //       .and()
-    //             //   //       .matchTweetContainsMedia()
-    //             //   //       .build(),
-    //             //   // ),
-    //             //   // v2.FilteringRuleParam(
-    //             //   //   //! => (#SpaceX has:media) OR (#SpaceX has:hashtags) sample:50
-    //             //   //   value: v2.FilteringRule.ofSample(percent: 50)
-    //             //   //       .group(
-    //             //   //         v2.FilteringRule.of()
-    //             //   //             .matchHashtag('SpaceX')
-    //             //   //             .and()
-    //             //   //             .matchTweetContainsMedia(),
-    //             //   //       )
-    //             //   //       .or()
-    //             //   //       .group(
-    //             //   //         v2.FilteringRule.of()
-    //             //   //             .matchHashtag('SpaceX')
-    //             //   //             .and()
-    //             //   //             .matchTweetContainsHashtags(),
-    //             //   //       )
-    //             //   //       .build(),
-    //             //   // ),
-    //             // ],
-    //           );
+                  // rulesFilter[1],
+                  //! You can easily build filtering rule using by "FilteringRule" object.
+                  v2.FilteringRuleParam(
+                    //! => #Tesla has:media
+                    value: v2.FilteringRule.of()
+                        .matchHashtag('Tesla')
+                        .and()
+                        .matchTweetContainsMedia()
+                        .build(),
+                  ),
+                  v2.FilteringRuleParam(
+                    //! => (#SpaceX has:media) OR (#SpaceX has:hashtags) sample:50
+                    value: v2.FilteringRule.ofSample(percent: 50)
+                        .group(
+                          v2.FilteringRule.of()
+                              .matchHashtag('SpaceX')
+                              .and()
+                              .matchTweetContainsMedia(),
+                        )
+                        .or()
+                        .group(
+                          v2.FilteringRule.of()
+                              .matchHashtag('SpaceX')
+                              .and()
+                              .matchTweetContainsHashtags(),
+                        )
+                        .build(),
+                  ),
+                ],
+              );
 
-    //           final filteredStream = await twitter.tweets.connectFilteredStream();
-    //           await for (final response in filteredStream.stream.handleError(print)) {
-    //             // aqui posso pegar os dados e enviar para o kafka de dados
-    //             print(response.data);
-    //             print(response.matchingRules);
-    //           }
-    //         } on TimeoutException catch (e) {
-    //           print(e);
-    //         } on v2.UnauthorizedException catch (e) {
-    //           print(e);
-    //         } on v2.RateLimitExceededException catch (e) {
-    //           print(e);
-    //         } on v2.DataNotFoundException catch (e) {
-    //           print(e);
-    //         } on v2.TwitterUploadException catch (e) {
-    //           print(e);
-    //         } on v2.TwitterException catch (e) {
-    //           print(e.response.headers);
-    //           print(e.body);
-    //           print(e);
-    //         }
+              final filteredStream = await twitter.tweets.connectFilteredStream();
+              await for (final response in filteredStream.stream.handleError(print)) {
+                // aqui posso pegar os dados e enviar para o kafka de dados
+                print(response.data);
+                print(response.matchingRules);
+              }
+            } on TimeoutException catch (e) {
+              print(e);
+            } on v2.UnauthorizedException catch (e) {
+              print(e);
+            } on v2.RateLimitExceededException catch (e) {
+              print(e);
+            } on v2.DataNotFoundException catch (e) {
+              print(e);
+            } on v2.TwitterUploadException catch (e) {
+              print(e);
+            } on v2.TwitterException catch (e) {
+              print(e.response.headers);
+              print(e.body);
+              print(e);
+            }
+    // }
     // } else if (deserializedData.finalDataSourceType == 'YouTube') { // configuracao youtube
     //   print('cai aqui agora');
     //       // Your YouTube Data API key
@@ -146,5 +148,6 @@ void main(List<String> arguments) async {
     //   // deserializedData.fileData?.forEach((key, value) {print('$key:$value');});
     // }
   }
-  session.close(); // make sure to always close the session when the work is done.
+ // session.close(); // make sure to always close the session when the work is done.
+  }
 }

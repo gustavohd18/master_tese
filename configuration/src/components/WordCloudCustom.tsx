@@ -15,157 +15,158 @@ const WordCloudCustom: React.FC<MyComponentWordsProps> = ({
   words,
   functionDis,
 }) => {
-  const data = [
-    {
-      "text": "Clinton",
-      "value": 190
-    },
-    {
-      "text": "lol",
-      "value": 90
-    },
-    {
-      "text": "bad",
-      "value": 300
-    },
-    {
-      "text": "disgusting",
-      "value": 200
-    },
-    {
-      "text": "security",
-      "value": 600
-    },
-    {
-      "text": "Obama",
-      "value": 3
-    },
-    {
-      "text": "no",
-      "value": 3
-    },
-    {
-      "text": "nooo",
-      "value": 3
-    },
-    {
-      "text": "yes",
-      "value": 3
-    },
-    {
-      "text": "noo",
-      "value": 3
-    },
-    {
-      "text": "Russia",
-      "value": 400
-    },
-    {
-      "text": "USA",
-      "value": 300
-    },
-    {
-      "text": "bbc",
-      "value": 600
-    },
-    {
-      "text": "crazy",
-      "value": 300
-    },
-    {
-      "text": "jeff",
-      "value": 200
-    },
-    {
-      "text": "president",
-      "value": 400
-    },
-    {
-      "text": "#freeBillClinton",
-      "value": 700
-    },
-    {
-      "text": "Bill",
-      "value": 460
-    },
-    {
-      "text": "tosecure",
-      "value": 80
-    },
+  const data = words
+  // const data = [
+  //   {
+  //     "text": "Clinton",
+  //     "value": 190
+  //   },
+  //   {
+  //     "text": "lol",
+  //     "value": 90
+  //   },
+  //   {
+  //     "text": "bad",
+  //     "value": 300
+  //   },
+  //   {
+  //     "text": "disgusting",
+  //     "value": 200
+  //   },
+  //   {
+  //     "text": "security",
+  //     "value": 600
+  //   },
+  //   {
+  //     "text": "Obama",
+  //     "value": 3
+  //   },
+  //   {
+  //     "text": "no",
+  //     "value": 3
+  //   },
+  //   {
+  //     "text": "nooo",
+  //     "value": 3
+  //   },
+  //   {
+  //     "text": "yes",
+  //     "value": 3
+  //   },
+  //   {
+  //     "text": "noo",
+  //     "value": 3
+  //   },
+  //   {
+  //     "text": "Russia",
+  //     "value": 400
+  //   },
+  //   {
+  //     "text": "USA",
+  //     "value": 300
+  //   },
+  //   {
+  //     "text": "bbc",
+  //     "value": 600
+  //   },
+  //   {
+  //     "text": "crazy",
+  //     "value": 300
+  //   },
+  //   {
+  //     "text": "jeff",
+  //     "value": 200
+  //   },
+  //   {
+  //     "text": "president",
+  //     "value": 400
+  //   },
+  //   {
+  //     "text": "#freeBillClinton",
+  //     "value": 700
+  //   },
+  //   {
+  //     "text": "Bill",
+  //     "value": 460
+  //   },
+  //   {
+  //     "text": "tosecure",
+  //     "value": 80
+  //   },
     
-    {
-      "text": "Lies",
-      "value": 130
-    },
-    {
-      "text": "and",
-      "value": 48
-    },
-    {
-      "text": "in",
-      "value": 33
-    },
-    {
-      "text": "the",
-      "value": 79
-    },
-    {
-      "text": "confusion",
-      "value": 99
-    },
-    {
-      "text": "months,",
-      "value": 3
-    },
-    {
-      "text": "ahhh",
-      "value": 61
-    },
-    {
-      "text": "lot",
-      "value": 21
-    },
-    {
-      "text": "more",
-      "value": 75
-    },
-    {
-      "text": "people",
-      "value": 70
-    },
-    {
-      "text": "Post",
-      "value": 73
-    },
-    {
-      "text": "wasnt",
-      "value": 52
-    },
-    {
-      "text": "sony's",
-      "value": 52
-    },
-    {
-      "text": "day",
-      "value": 75
-    },
-    {
-      "text": "today\nit",
-      "value": 87
-    },
-    {
-      "text": "werent",
-      "value": 57
-    },
-    {
-      "text": "their",
-      "value": 87
-    },
-    {
-      "text": "First",
-      "value": 35
-    }
-  ]
+  //   {
+  //     "text": "Lies",
+  //     "value": 130
+  //   },
+  //   {
+  //     "text": "and",
+  //     "value": 48
+  //   },
+  //   {
+  //     "text": "in",
+  //     "value": 33
+  //   },
+  //   {
+  //     "text": "the",
+  //     "value": 79
+  //   },
+  //   {
+  //     "text": "confusion",
+  //     "value": 99
+  //   },
+  //   {
+  //     "text": "months,",
+  //     "value": 3
+  //   },
+  //   {
+  //     "text": "ahhh",
+  //     "value": 61
+  //   },
+  //   {
+  //     "text": "lot",
+  //     "value": 21
+  //   },
+  //   {
+  //     "text": "more",
+  //     "value": 75
+  //   },
+  //   {
+  //     "text": "people",
+  //     "value": 70
+  //   },
+  //   {
+  //     "text": "Post",
+  //     "value": 73
+  //   },
+  //   {
+  //     "text": "wasnt",
+  //     "value": 52
+  //   },
+  //   {
+  //     "text": "sony's",
+  //     "value": 52
+  //   },
+  //   {
+  //     "text": "day",
+  //     "value": 75
+  //   },
+  //   {
+  //     "text": "today\nit",
+  //     "value": 87
+  //   },
+  //   {
+  //     "text": "werent",
+  //     "value": 57
+  //   },
+  //   {
+  //     "text": "their",
+  //     "value": 87
+  //   },
+  //   {
+  //     "text": "First",
+  //     "value": 35
+  //   }
+  // ]
   // [
   //   {
   //     "text": "Konami",

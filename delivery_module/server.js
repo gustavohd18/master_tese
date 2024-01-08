@@ -13,7 +13,8 @@ const totTweetsArray = []
 // Function to merge and update data
 function mergeData(existingData, newData) {
   const mergedData = [...existingData];
-
+  console.log("Cheguei na funcao para mergiar")
+  console.log(mergedData)
   newData.forEach(newItem => {
     const existingItemIndex = mergedData.findIndex(item => item.text === newItem.text);
 
@@ -41,7 +42,7 @@ function mergeData(existingData, newData) {
   return mergedData;
 }
 // Creating a new websocket server
-const wss = new WebSocketServer.Server({ port: 8089 })
+const wss = new WebSocketServer.Server({ port: 8092 })
 
 // const kafka = new kafka1.Kafka({
 //   clientId: 'my-app',
@@ -60,16 +61,16 @@ wss.on("connection", async ws => {
   // Consumer options
 const consumerConfig = {
   groupId: 'my-group',
-  brokers: ['192.168.0.90:9092'],
+  brokers: ['localhost:9094'],
   autoCommit: true,
   autoCommitInterval: 5000,
 };
 
 // First consumer
-const consumer1 = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer1' });
-await consumer1.connect();
-await consumer1.subscribe({ topic: 'teste2' });
-await consumer1.run({
+const consumerWordCloud = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer1' });
+await consumerWordCloud.connect();
+await consumerWordCloud.subscribe({ topic: 'sendWordCountProcessedVisualization' });
+await consumerWordCloud.run({
   eachBatchAutoResolve: true,
   eachBatch: async ({
       batch,
@@ -81,6 +82,7 @@ await consumer1.run({
       isStale,
       pause,
   }) => {
+    console.log("chegou aqui")
     const outputList = batch.messages.map(message => {
       // Remove the parentheses and split the string by the comma
       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
@@ -88,162 +90,162 @@ await consumer1.run({
       // Create a new object with the extracted values
       return  {"text":x,"value": parseInt(value)};
     }); // validar se esta certo
-
-    const mergedData =mergeData(wordcloudArray, outputList);
-   wordcloudArray.length = 0
-   wordcloudArray.push(...mergedData)
-    //format object to json 
-    ws.send(JSON.stringify({"phases":false,"namedEntity":false, data:wordcloudArray}));
+     const mergedData =mergeData(wordcloudArray, outputList);
+    //  console.log(mergedData)
+     wordcloudArray.length = 0
+     wordcloudArray.push(...mergedData)
+  //   //format object to json 
+      ws.send(JSON.stringify({"phases":false,"namedEntity":false, data:wordcloudArray}));
   },
 });
 
-// Second consumer
-const consumer2 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer2' });
-await consumer2.connect();
-await consumer2.subscribe({ topic: 'teste23' });
-await consumer2.run({
-  eachBatchAutoResolve: true,
-  eachBatch: async ({
-      batch,
-      resolveOffset,
-      heartbeat,
-      commitOffsetsIfNecessary,
-      uncommittedOffsets,
-      isRunning,
-      isStale,
-      pause,
-  }) => {
-    const array1 = []
-    const array2 = []
-    const outputList = batch.messages.map(message => {
-      // Remove the parentheses and split the string by the comma
-      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+// // Second consumer
+// const consumer2 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer2' });
+// await consumer2.connect();
+// await consumer2.subscribe({ topic: 'teste23' });
+// await consumer2.run({
+//   eachBatchAutoResolve: true,
+//   eachBatch: async ({
+//       batch,
+//       resolveOffset,
+//       heartbeat,
+//       commitOffsetsIfNecessary,
+//       uncommittedOffsets,
+//       isRunning,
+//       isStale,
+//       pause,
+//   }) => {
+//     const array1 = []
+//     const array2 = []
+//     const outputList = batch.messages.map(message => {
+//       // Remove the parentheses and split the string by the comma
+//       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
 
-      // Create a new object with the extracted values
-      return  {"text":x,"value": parseInt(value)};
-    }); // validar se esta certo
+//       // Create a new object with the extracted values
+//       return  {"text":x,"value": parseInt(value)};
+//     }); // validar se esta certo
 
-    const mergedData =mergeData(namedEntityArray, outputList);
-    namedEntityArray.length = 0
-    namedEntityArray.push(...mergedData)
+//     const mergedData =mergeData(namedEntityArray, outputList);
+//     namedEntityArray.length = 0
+//     namedEntityArray.push(...mergedData)
 
-   const textArray = namedEntityArray.map(obj => obj.text);
-   const valueArray = namedEntityArray.map(obj => obj.value);
-  //   for (var i = 0; i < batch.messages.length; i++) {
-  //     // Remove the parentheses and split the string by the comma
-  //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+//    const textArray = namedEntityArray.map(obj => obj.text);
+//    const valueArray = namedEntityArray.map(obj => obj.value);
+//   //   for (var i = 0; i < batch.messages.length; i++) {
+//   //     // Remove the parentheses and split the string by the comma
+//   //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
       
-  //     // Create a new object with the extracted values
-  //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
-  //     array1.push(x)
-  //     array2.push(parseInt(value))      // more statements
-  //  }
-    // const outputList = batch.messages.map(message => {
-    //   // Remove the parentheses and split the string by the comma
-    //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+//   //     // Create a new object with the extracted values
+//   //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//   //     array1.push(x)
+//   //     array2.push(parseInt(value))      // more statements
+//   //  }
+//     // const outputList = batch.messages.map(message => {
+//     //   // Remove the parentheses and split the string by the comma
+//     //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
       
-    //   // Create a new object with the extracted values
-    //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
-    //   array1.push(x)
-    //   array2.push(value)
-    //   return  [[x], [parseInt(value)]];
-    // });
-    //format object to json 
-    ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
-  },
-});
+//     //   // Create a new object with the extracted values
+//     //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//     //   array1.push(x)
+//     //   array2.push(value)
+//     //   return  [[x], [parseInt(value)]];
+//     // });
+//     //format object to json 
+//     ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":false, data:[textArray, valueArray]}));
+//   },
+// });
 
 // terceiro consumer
-const consumer3 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer3' });
-await consumer3.connect();
-await consumer3.subscribe({ topic: 'teste231' });
-await consumer3.run({
-  eachBatchAutoResolve: true,
-  eachBatch: async ({
-      batch,
-      resolveOffset,
-      heartbeat,
-      commitOffsetsIfNecessary,
-      uncommittedOffsets,
-      isRunning,
-      isStale,
-      pause,
-  }) => {
-    const array3 = []
-    const array4 = []
-    const outputList = batch.messages.map(message => {
-      // Remove the parentheses and split the string by the comma
-      const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
-      const dateObject = new Date(x);
-      // Create a new object with the extracted values
-      return  [dateObject, parseInt(value)];
-    }); // validar se esta certo
+// const consumer3 =  new kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer3' });
+// await consumer3.connect();
+// await consumer3.subscribe({ topic: 'teste231' });
+// await consumer3.run({
+//   eachBatchAutoResolve: true,
+//   eachBatch: async ({
+//       batch,
+//       resolveOffset,
+//       heartbeat,
+//       commitOffsetsIfNecessary,
+//       uncommittedOffsets,
+//       isRunning,
+//       isStale,
+//       pause,
+//   }) => {
+//     const array3 = []
+//     const array4 = []
+//     const outputList = batch.messages.map(message => {
+//       // Remove the parentheses and split the string by the comma
+//       const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+//       const dateObject = new Date(x);
+//       // Create a new object with the extracted values
+//       return  [dateObject, parseInt(value)];
+//     }); // validar se esta certo
 
-    totTweetsArray.push(...outputList)
-    const uniqueData = [...new Set(totTweetsArray.map(JSON.stringify))].map(JSON.parse);
-    totTweetsArray.length = 0
-    totTweetsArray.push(...uniqueData)
-    totTweetsArray.sort((a, b) => new Date(a[0]) - new Date(b[0]));
+//     totTweetsArray.push(...outputList)
+//     const uniqueData = [...new Set(totTweetsArray.map(JSON.stringify))].map(JSON.parse);
+//     totTweetsArray.length = 0
+//     totTweetsArray.push(...uniqueData)
+//     totTweetsArray.sort((a, b) => new Date(a[0]) - new Date(b[0]));
 
 
-//    const dateArray = totTweetsArray.map(obj => obj.date);
-// const valueArray = totTweetsArray.map(obj => obj.value);
-  //   for (var i = 0; i < batch.messages.length; i++) {
-  //     // Remove the parentheses and split the string by the comma
-  //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+// //    const dateArray = totTweetsArray.map(obj => obj.date);
+// // const valueArray = totTweetsArray.map(obj => obj.value);
+//   //   for (var i = 0; i < batch.messages.length; i++) {
+//   //     // Remove the parentheses and split the string by the comma
+//   //     const [x, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
       
-  //     // Create a new object with the extracted values
-  //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
-  //     const dateObject = new Date(x);
+//   //     // Create a new object with the extracted values
+//   //     //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//   //     const dateObject = new Date(x);
 
-  //     array3.push(dateObject)
-  //     array4.push(parseInt(value))      // more statements
-  //  }
-    // const outputList = batch.messages.map(message => {
-    //   // Remove the parentheses and split the string by the comma
-    //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
+//   //     array3.push(dateObject)
+//   //     array4.push(parseInt(value))      // more statements
+//   //  }
+//     // const outputList = batch.messages.map(message => {
+//     //   // Remove the parentheses and split the string by the comma
+//     //   const [x, value] = message.value.toString().replace(/[()]/g, '').split(',');
       
-    //   // Create a new object with the extracted values
-    //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
-    //   array1.push(x)
-    //   array2.push(value)
-    //   return  [[x], [parseInt(value)]];
-    // });
-    //format object to json 
-    ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":true, data:totTweetsArray}));
-  },
-});
+//     //   // Create a new object with the extracted values
+//     //   //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//     //   array1.push(x)
+//     //   array2.push(value)
+//     //   return  [[x], [parseInt(value)]];
+//     // });
+//     //format object to json 
+//     ws.send(JSON.stringify({"phases":false,"namedEntity":true,"isDate":true, data:totTweetsArray}));
+//   },
+// });
 
 // First consumer
-const consumer4 = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer4' });
-await consumer4.connect();
-await consumer4.subscribe({ topic: 'teste2312' });
-await consumer4.run({
-  eachBatchAutoResolve: true,
-  eachBatch: async ({
-      batch,
-      resolveOffset,
-      heartbeat,
-      commitOffsetsIfNecessary,
-      uncommittedOffsets,
-      isRunning,
-      isStale,
-      pause,
-  }) => {
-    const pphases = []
-    for (var i = 0; i < batch.messages.length; i++) {
-      // Remove the parentheses and split the string by the comma
-      const [text, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
+// const consumer4 = new  kafka1.Kafka(consumerConfig).consumer({ groupId: 'consumer4' });
+// await consumer4.connect();
+// await consumer4.subscribe({ topic: 'teste2312' });
+// await consumer4.run({
+//   eachBatchAutoResolve: true,
+//   eachBatch: async ({
+//       batch,
+//       resolveOffset,
+//       heartbeat,
+//       commitOffsetsIfNecessary,
+//       uncommittedOffsets,
+//       isRunning,
+//       isStale,
+//       pause,
+//   }) => {
+//     const pphases = []
+//     for (var i = 0; i < batch.messages.length; i++) {
+//       // Remove the parentheses and split the string by the comma
+//       const [text, value] = batch.messages[i].value.toString().replace(/[()]/g, '').split(',');
       
-      // Create a new object with the extracted values
-      //array com o primeiro elemento sendo o array de names e o segundo inteiros
-      pphases.push(text)
-            // more statements
-   }
-    //format object to json 
-    ws.send(JSON.stringify({"phases":true,"namedEntity":false, data:pphases}));
-  },
-});
+//       // Create a new object with the extracted values
+//       //array com o primeiro elemento sendo o array de names e o segundo inteiros
+//       pphases.push(text)
+//             // more statements
+//    }
+//     //format object to json 
+//     ws.send(JSON.stringify({"phases":true,"namedEntity":false, data:pphases}));
+//   },
+// });
   //handlerKafkaNamed(ws)
 
  // handlerKafka(ws)
@@ -406,14 +408,14 @@ async function handlerKafka (ws) {
 
  const kafkaprod = new kafka1.Kafka(prodConfig).producer()
    
- await kafkaprod.connect()
- await kafkaprod.send({
-   topic: 'data_from_user_visualization', 
-   messages: [
-     message
+//  await kafkaprod.connect()
+//  await kafkaprod.send({
+//    topic: 'data_from_user_visualization', 
+//    messages: [
+//      message
 
-   ],
-  })
+//    ],
+//   })
 
-  await kafkaprod.disconnect();
+//   await kafkaprod.disconnect();
 }

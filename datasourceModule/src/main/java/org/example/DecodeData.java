@@ -3,6 +3,7 @@ package org.example;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 public class DecodeData {
     @JsonProperty("finalDataSourceType")
@@ -56,7 +57,7 @@ public class DecodeData {
     public boolean isMinSelected;
 
     @JsonProperty("file_data")
-    public String fileData;  // You may need to adjust the type based on the actual data type
+    public Map<String, Object> fileData;
 
     // getters and setters
 }

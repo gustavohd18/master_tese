@@ -72,14 +72,14 @@ function App() {
   }
 
   useEffect(() => {
-    const newSocket = new WebSocket("ws://192.168.0.90:8089");
+    const newSocket = new WebSocket("ws://localhost:8092");
 
     newSocket.addEventListener("open", () => {
       console.log("WebSocket connection established.");
     });
 
     newSocket.addEventListener("message", (event: WebSocketMessageEvent) => {
-      // console.log("Received message:", event.data);
+        console.log("Received message:", event.data);
       //aqui conseguimos mapear
       const dataJson = JSON.parse(event.data);
       const dataFromEvent = dataJson["data"];
